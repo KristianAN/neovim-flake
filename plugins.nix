@@ -7,6 +7,7 @@ with pkgs.vimPlugins; [
   which-key-nvim
   trouble-nvim
   zen-mode-nvim
+  fidget-nvim
 
   # Git
   gitsigns-nvim

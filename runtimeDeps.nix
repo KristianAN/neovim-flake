@@ -9,5 +9,6 @@
     coursier
     jdt-language-server
     rnix-lsp
+    lua-language-server
   ];
 }
