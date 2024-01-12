@@ -9,6 +9,7 @@
     cmp-buffer
     cmp-path
     cmp-cmdline
+    luasnip
 
     #theme
     kanagawa-nvim
