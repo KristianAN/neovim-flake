@@ -1,6 +1,10 @@
 { pkgs }:
   with pkgs.vimPlugins; [
     telescope-nvim
+    nvim-cmp
+    fugitive
+
+    # lsp stuff
     nvim-lspconfig
     nvim-metals
     nvim-jdtls
