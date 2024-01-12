@@ -8,5 +8,6 @@
    haskell-language-server
    coursier
    jdt-language-server
+   metals
  ];
 }
