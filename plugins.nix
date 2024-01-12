@@ -2,7 +2,11 @@
   with pkgs.vimPlugins; [
     telescope-nvim
     nvim-cmp
+    cmp-nvim-lsp
     fugitive
+
+    #theme
+    kanagawa-nvim
 
     # lsp stuff
     nvim-lspconfig
