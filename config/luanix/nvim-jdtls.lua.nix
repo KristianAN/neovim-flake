@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 ''
 --local config = {
 --    cmd = {${pkgs.jdt-language-server}/bin/jdt-language-server},

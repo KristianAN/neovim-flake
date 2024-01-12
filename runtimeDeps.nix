@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, metals-pkg}:
 {
  nodeDeps = with pkgs; [
  ];
@@ -8,6 +8,6 @@
    haskell-language-server
    coursier
    jdt-language-server
-   metals
+   metals-pkg
  ];
 }

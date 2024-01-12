@@ -17,6 +17,7 @@
     # lsp stuff
     nvim-lspconfig
     nvim-jdtls
+    nvim-metals
 
     # tree-sitter
     nvim-treesitter
