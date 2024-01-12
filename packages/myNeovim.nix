@@ -21,6 +21,7 @@ let
     };
   };
 in
+
 pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [ neovimRuntimeNodeDependencies shellRuntimeDependencies ];

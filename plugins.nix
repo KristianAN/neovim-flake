@@ -4,10 +4,12 @@ with pkgs.vimPlugins; [
   telescope-nvim
   indent-blankline-nvim
   lualine-nvim
+  which-key-nvim
 
   # Git
-
+  gitsigns-nvim
   fugitive
+
   # Completion
   nvim-cmp
   cmp-nvim-lsp
