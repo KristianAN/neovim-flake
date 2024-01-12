@@ -3,6 +3,7 @@ with pkgs.vimPlugins; [
   # UI
   telescope-nvim
   indent-blankline-nvim
+  lualine-nvim
 
   # Git
 
