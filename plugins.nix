@@ -5,6 +5,8 @@ with pkgs.vimPlugins; [
   indent-blankline-nvim
   lualine-nvim
   which-key-nvim
+  trouble-nvim
+  zen-mode-nvim
 
   # Git
   gitsigns-nvim
