@@ -1,10 +1,10 @@
-{ pkgs, metals-pkg }:
+{ pkgs }:
 let
   nixFiles2ConfigFiles = dir:
     builtins.map (file:
       pkgs.writeTextFile {
         name = pkgs.lib.strings.removeSuffix ".nix" file;
-        text = import ./${dir}/${file} { inherit pkgs; inherit metals-pkg; };
+        text = import ./${dir}/${file} { inherit pkgs; };
       }) (builtins.attrNames (builtins.readDir ./${dir}));
 
   scripts2ConfigFiles = dir:

@@ -1,8 +1,8 @@
-{ pkgs, metals-pkg }:
+{ pkgs, ... }:
 let
-  customRC = import ../config { inherit pkgs; inherit metals-pkg; };
+  customRC = import ../config { inherit pkgs; };
   plugins = import ../plugins.nix { inherit pkgs;  };
-  runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; inherit metals-pkg; };
+  runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; };
 
   neovimRuntimeNodeDependencies = pkgs.symlinkJoin {
     paths = runtimeDeps.nodeDeps;
