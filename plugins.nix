@@ -1,9 +1,14 @@
 { pkgs }:
   with pkgs.vimPlugins; [
     telescope-nvim
+    fugitive
+
+    # Completion
     nvim-cmp
     cmp-nvim-lsp
-    fugitive
+    cmp-buffer
+    cmp-path
+    cmp-cmdline
 
     #theme
     kanagawa-nvim

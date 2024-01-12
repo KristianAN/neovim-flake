@@ -1,12 +1,14 @@
 local cmp = require("cmp")
 cmp.setup({
-  sources = {},
+  sources = {
+    { name = "nvim_lsp" },
+    { name = 'luasnip' },
+  },
   snippet = {
     expand = function(args)
-      -- Comes from vsnip
-      vim.fn["vsnip#anonymous"](args.body)
+    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
-  },
+    },
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = function(fallback)
@@ -25,4 +27,5 @@ cmp.setup({
     end,
   }),
 })
+
 
