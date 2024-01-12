@@ -14,20 +14,21 @@
   };
   outputs = { self, nixpkgs, neovim, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
-    let
-       overlayFlakeInputs = prev: final: {
+      let
+        overlayFlakeInputs = prev: final: {
           neovim = neovim.packages.${prev.system}.neovim;
         };
 
         overlayMyNeovim = prev: final: {
-          myNeovim = import ./packages/myNeovim.nix { pkgs = prev; }; 
+          myNeovim = import ./packages/myNeovim.nix { pkgs = prev; };
         };
 
         pkgs = import nixpkgs {
-	  inherit system;
+          inherit system;
           overlays = [
-	    overlayFlakeInputs 
-	    overlayMyNeovim ];
+            overlayFlakeInputs
+            overlayMyNeovim
+          ];
         };
 
       in
