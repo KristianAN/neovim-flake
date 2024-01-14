@@ -33,23 +33,23 @@ with pkgs.vimPlugins; [
   nvim-jdtls
   nvim-metals
 
-  # tree-sitter
-  nvim-treesitter
-  nvim-treesitter-parsers.scala
-  nvim-treesitter-parsers.nix
-  nvim-treesitter-parsers.java
-  nvim-treesitter-parsers.haskell
-  nvim-treesitter-parsers.python
-  nvim-treesitter-parsers.rust
-  nvim-treesitter-parsers.javascript
-  nvim-treesitter-parsers.typescript
-  nvim-treesitter-parsers.lua
-  nvim-treesitter-parsers.yaml
-  nvim-treesitter-parsers.xml
-  nvim-treesitter-parsers.sql
-  nvim-treesitter-parsers.smithy
-  nvim-treesitter-parsers.dockerfile
-  nvim-treesitter-parsers.css
-  tree-sitter-nu.grammar
-
+  (nvim-treesitter.withPlugins (plugins:
+    with plugins; [
+      scala
+      nix
+      java
+      haskell
+      python
+      rust
+      javascript
+      typescript
+      lua
+      yaml
+      xml
+      sql
+      smithy
+      dockerfile
+      css
+      tree-sitter-nu.grammar
+    ]))
 ]
