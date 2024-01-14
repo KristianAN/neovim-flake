@@ -1,4 +1,9 @@
 { pkgs }:
+let
+  tree-sitter-nu = pkgs.callPackage ./modules/nvim-treesitter-nu.nix {
+    inherit (pkgs.tree-sitter) buildGrammar;
+  };
+in
 with pkgs.vimPlugins; [
   # UI
   telescope-nvim
@@ -41,4 +46,10 @@ with pkgs.vimPlugins; [
   nvim-treesitter-parsers.lua
   nvim-treesitter-parsers.yaml
   nvim-treesitter-parsers.xml
+  nvim-treesitter-parsers.sql
+  nvim-treesitter-parsers.smithy
+  nvim-treesitter-parsers.dockerfile
+  nvim-treesitter-parsers.css
+  tree-sitter-nu.grammar
+
 ]
