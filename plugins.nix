@@ -1,8 +1,5 @@
 { pkgs }:
 let
-  tree-sitter-nu = pkgs.callPackage ./modules/nvim-treesitter-nu.nix {
-    inherit (pkgs.tree-sitter) buildGrammar;
-  };
 in
 with pkgs.vimPlugins; [
   # UI
@@ -50,6 +47,5 @@ with pkgs.vimPlugins; [
       smithy
       dockerfile
       css
-      tree-sitter-nu.grammar
     ]))
 ]
