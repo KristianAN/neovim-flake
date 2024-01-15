@@ -1,3 +1,4 @@
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require("cmp")
 cmp.setup({
   sources = {
@@ -6,9 +7,9 @@ cmp.setup({
   },
   snippet = {
     expand = function(args)
-    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
-    },
+  },
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = function(fallback)
@@ -28,4 +29,7 @@ cmp.setup({
   }),
 })
 
-
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

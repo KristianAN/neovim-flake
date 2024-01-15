@@ -14,6 +14,9 @@ with pkgs.vimPlugins; [
   gitsigns-nvim
   fugitive
 
+  # GitHub
+  octo-nvim
+
   # Completion
   nvim-cmp
   cmp-nvim-lsp
@@ -21,6 +24,9 @@ with pkgs.vimPlugins; [
   cmp-path
   cmp-cmdline
   luasnip
+
+  # Editing
+  nvim-autopairs
 
   #theme
   kanagawa-nvim
