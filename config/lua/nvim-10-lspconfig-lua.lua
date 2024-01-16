@@ -35,6 +35,12 @@ Lsp_on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = Lsp_on_attach
+  }
+}
+
 require 'lspconfig'.hls.setup {
   on_attach = Lsp_on_attach
 }

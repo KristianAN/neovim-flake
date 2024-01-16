@@ -35,6 +35,7 @@ with pkgs.vimPlugins; [
   nvim-lspconfig
   nvim-jdtls
   nvim-metals
+  rustaceanvim
 
   (nvim-treesitter.withPlugins (plugins:
     with plugins; [
