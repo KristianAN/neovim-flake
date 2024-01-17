@@ -36,6 +36,7 @@ with pkgs.vimPlugins; [
   nvim-jdtls
   nvim-metals
   rustaceanvim
+  haskell-tools-nvim
 
   # Other
   oil-nvim
