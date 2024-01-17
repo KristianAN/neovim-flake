@@ -37,6 +37,9 @@ with pkgs.vimPlugins; [
   nvim-metals
   rustaceanvim
 
+  # Other
+  oil-nvim
+
   (nvim-treesitter.withPlugins (plugins:
     with plugins; [
       scala
