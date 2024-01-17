@@ -41,10 +41,8 @@ vim.g.rustaceanvim = {
   }
 }
 
-vim.g.haskell_tools = {
-  hls = {
-    on_attach = Lsp_on_attach
-  },
+require 'lspconfig'.hls.setup {
+  on_attach = Lsp_on_attach
 }
 
 require 'lspconfig'.rnix.setup {
