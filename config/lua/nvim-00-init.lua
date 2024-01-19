@@ -2,6 +2,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
