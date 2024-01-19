@@ -9,6 +9,7 @@ with pkgs.vimPlugins; [
   which-key-nvim
   trouble-nvim
   zen-mode-nvim
+  nvim-web-devicons
 
   # Git
   gitsigns-nvim
