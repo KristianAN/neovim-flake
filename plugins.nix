@@ -30,7 +30,7 @@ with pkgs.vimPlugins; [
   nvim-autopairs
 
   #theme
-  modus-themes-nvim
+  midnight-nvim
 
   # lsp stuff
   nvim-lspconfig

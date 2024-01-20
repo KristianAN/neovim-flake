@@ -11,12 +11,24 @@
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
+
+    midnight-nvim = {
+      url = "github:dasupradyumna/midnight.nvim";
+      flake = false;
+    };
   };
-  outputs = { self, nixpkgs, neovim, flake-utils }:
+  outputs = { self, nixpkgs, neovim, flake-utils, midnight-nvim }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlayFlakeInputs = prev: final: {
           neovim = neovim.packages.${prev.system}.neovim;
+
+          vimPlugins = final.vimPlugins // {
+            midnight-nvim = import ./packages/plugins/midnight-nvim.nix {
+              src = midnight-nvim;
+              pkgs = prev;
+            };
+          };
         };
 
         overlayMyNeovim = prev: final: {
