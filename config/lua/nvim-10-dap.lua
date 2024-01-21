@@ -10,12 +10,15 @@ dap.configurations.java = {
   },
 }
 
-vim.keymap.set('n', '<leader>dd', function()
-  require 'dap'.toggle_breakpoint()
-end, { desc = 'Toggle breakpoint' })
+vim.keymap.set('n', '<leader>dd',
+  function() dap.toggle_breakpoint() end
+  , { desc = 'Toggle breakpoint' })
 
 vim.keymap.set('n', '<leader>du', function()
   require 'dapui'.open()
 end, { desc = 'Debug' })
+
+vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = "Start/continue debugging" })
+
 
 require 'dapui'.setup {}

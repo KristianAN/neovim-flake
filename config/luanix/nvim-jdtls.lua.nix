@@ -1,14 +1,5 @@
 # Setup for Java language server
 { pkgs, ... }:
-let
-  java-debug = pkgs.fetchMavenArtifact
-    {
-      groupId = "com.microsoft.java";
-      artifactId = "com.microsoft.java.debug.plugin";
-      version = "0.30.0";
-      sha256 = "0xz33p397g4pw6y3ydb9yafh2vnws3ym0nljr3369k47gq0w02v5";
-    };
-in
 ''
   local home = os.getenv('HOME')
   local root_markers = { 'gradlew', 'mvnw', '.git' }
@@ -22,7 +13,8 @@ in
     root_dir = root_dir,
     init_options = {
       bundles = {
-        vim.fn.glob("${java-debug.jar}", 1)
+        vim.fn.glob("${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar", 1),
+        vim.fn.glob("${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar", 1)
       }
     }
   }
@@ -34,8 +26,6 @@ in
       pattern = { "java" },
       callback = function()
         require('jdtls').start_or_attach(config)
-        require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-        require('jdtls.dap').setup_dap_main_class_configs()
       end,
       group = nvim_jdtls_group,
     }
