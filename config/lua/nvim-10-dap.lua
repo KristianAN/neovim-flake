@@ -14,7 +14,7 @@ vim.keymap.set('n', '<leader>dd', function()
   require 'dap'.toggle_breakpoint()
 end, { desc = 'Toggle breakpoint' })
 
-vim.keymap.set('n', '<leader>D', function()
+vim.keymap.set('n', '<leader>du', function()
   require 'dapui'.open()
 end, { desc = 'Debug' })
 
