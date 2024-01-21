@@ -38,6 +38,8 @@ with pkgs.vimPlugins; [
   nvim-metals
   rustaceanvim
   haskell-tools-nvim
+  nvim-dap
+  nvim-dap-ui
 
   # Other
   oil-nvim
