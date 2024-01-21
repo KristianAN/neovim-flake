@@ -34,6 +34,7 @@ in
       pattern = { "java" },
       callback = function()
         require('jdtls').start_or_attach(config)
+        require('jdtls').setup_dap({ hotcodereplace = 'auto' })
       end,
       group = nvim_jdtls_group,
     }
