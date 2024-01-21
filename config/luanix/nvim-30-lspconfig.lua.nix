@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "scala", "sbt" },
   callback = function()
     require("metals").initialize_or_attach(metals_config)
+    require("metals").setup_dap()
   end,
   group = nvim_metals_group,
 })
