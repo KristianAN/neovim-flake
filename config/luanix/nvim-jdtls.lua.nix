@@ -1,5 +1,8 @@
 # Setup for Java language server
 { pkgs, ... }:
+/*
+  lua
+*/
 ''
   local home = os.getenv('HOME')
   local root_markers = { 'gradlew', 'mvnw', '.git' }
