@@ -61,5 +61,6 @@ with pkgs.vimPlugins; [
       smithy
       dockerfile
       css
+      kotlin
     ]))
 ]
