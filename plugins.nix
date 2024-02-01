@@ -63,5 +63,6 @@ with pkgs.vimPlugins; [
       dockerfile
       css
       norg
+      kotlin
     ]))
 ]
