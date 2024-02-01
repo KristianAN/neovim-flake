@@ -1,0 +1,11 @@
+* Neovim flake for all my development needs
+** Language support
+   Currently set up to work ootb for these languages
+   - Java
+   - Scala
+   - Rust
+   - Haskell
+   - Lua
+
+   Adding new languages is a relatively simple task of just adding the tree-sitter module, adding the lsp as a runtime dep and setting up lspconfig.
+

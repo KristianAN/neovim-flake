@@ -43,6 +43,7 @@ with pkgs.vimPlugins; [
 
   # Other
   oil-nvim
+  neorg
 
   (nvim-treesitter.withPlugins (plugins:
     with plugins; [
@@ -61,5 +62,6 @@ with pkgs.vimPlugins; [
       smithy
       dockerfile
       css
+      norg
     ]))
 ]
