@@ -11,7 +11,7 @@
   local workspace_dir = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local nvim_jdtls_group = vim.api.nvim_create_augroup("nvim-jdtls", { clear = true })
   local config = {
-    cmd = { '${pkgs.jdt-language-server}/bin/jdt-language-server', '-data', workspace_dir },
+    cmd = { '${pkgs.jdt-language-server}/bin/jdtls', '-data', workspace_dir },
     on_attach = Lsp_on_attach,
     root_dir = root_dir,
     init_options = {
