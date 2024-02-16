@@ -5,7 +5,7 @@
       url = "github:NixOS/nixpkgs";
     };
     neovim = {
-      url = "github:neovim/neovim/stable?dir=contrib";
+      url = "github:neovim/neovim/nightly?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils = {
