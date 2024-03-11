@@ -47,10 +47,6 @@ vim.g.haskell_tools = {
   },
 }
 
-require 'lspconfig'.rnix.setup {
-  on_attach = Lsp_on_attach
-}
-
 require 'lspconfig'.lua_ls.setup {
   on_attach = Lsp_on_attach,
   on_init = function(client)

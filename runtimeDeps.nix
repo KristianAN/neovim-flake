@@ -8,7 +8,6 @@
     haskell-language-server
     coursier
     jdt-language-server
-    rnix-lsp
     lua-language-server
     rust-analyzer
   ];
