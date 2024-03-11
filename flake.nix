@@ -2,7 +2,7 @@
   description = "My own Neovim flake";
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     neovim = {
       url = "github:neovim/neovim/nightly?dir=contrib";
@@ -17,6 +17,7 @@
       flake = false;
     };
   };
+
   outputs = { self, nixpkgs, neovim, flake-utils, midnight-nvim }:
     flake-utils.lib.eachDefaultSystem (system:
       let
