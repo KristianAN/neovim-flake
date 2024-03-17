@@ -41,7 +41,7 @@ vim.g.rustaceanvim = {
   }
 }
 
-vim.g.fsharp = {
+vim.g.fsautocomplete = {
   server = {
     on_attach = Lsp_on_attach
   }
