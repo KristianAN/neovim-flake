@@ -40,6 +40,7 @@ with pkgs.vimPlugins; [
   haskell-tools-nvim
   nvim-dap
   nvim-dap-ui
+  Ionide-vim
 
   # Other
   oil-nvim
