@@ -41,16 +41,14 @@ vim.g.rustaceanvim = {
   }
 }
 
-vim.g.fsautocomplete = {
-  server = {
-    on_attach = Lsp_on_attach
-  }
-}
-
 vim.g.haskell_tools = {
   hls = {
     on_attach = Lsp_on_attach
   },
+}
+
+require 'lspconfig'.fsautocomplete.setup {
+  on_attach = Lsp_on_attach,
 }
 
 require 'lspconfig'.lua_ls.setup {
