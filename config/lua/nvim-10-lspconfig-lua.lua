@@ -41,6 +41,12 @@ vim.g.rustaceanvim = {
   }
 }
 
+vim.g.fsharp = {
+  server = {
+    on_attach = Lsp_on_attach
+  }
+}
+
 vim.g.haskell_tools = {
   hls = {
     on_attach = Lsp_on_attach
