@@ -23,6 +23,8 @@ let
       buildInputs = [ metalsDeps ];
     });
 
+  omnisharp = pkgs.omnisharp-roslyn;
+  tsserver = pkgs.nodePackages.typescript-language-server;
   metals-pkg = metals {
     version = "1.2.2";
     outputHash = "sha256-xk2ionn/lBV8AR7n7OR03UuRCoP1/K6KuohhpRwFock=";
@@ -33,8 +35,9 @@ in
     lua
   */
 ''
-  -- LSP settings.
-  --  This function gets run when an LSP connects to a particular buffer.
+  ----------------------------------------------------
+  -- Metals
+  ----------------------------------------------------
   local metals_config = require("metals").bare_config()
 
   -- Example of settings
@@ -72,4 +75,66 @@ in
     end,
     group = nvim_metals_group,
   })
+
+  ----------------------------------------------------
+  -- Omnisharp
+  ----------------------------------------------------
+
+  require'lspconfig'.omnisharp.setup {
+     on_attach = Lsp_on_attach,
+     cmd = { "dotnet", "${omnisharp}/lib/omnisharp-roslyn/OmniSharp.dll" },
+     enable_editorconfig_support = true,
+     enable_ms_build_load_projects_on_demand = false,
+     enable_roslyn_analyzers = false,
+     organize_imports_on_format = false,
+     enable_import_completion = false,
+     sdk_include_prereleases = true,
+     analyze_open_documents_only = false,
+  }
+
+  ----------------------------------------------------
+  -- TypeScript
+  ----------------------------------------------------
+
+  require("typescript-tools").setup {
+    on_attach = Lsp_on_attach,
+    settings = {
+      -- spawn additional tsserver instance to calculate diagnostics on it
+      separate_diagnostic_server = true,
+      -- "change"|"insert_leave" determine when the client asks the server about diagnostic
+      publish_diagnostic_on = "insert_leave",
+      expose_as_code_action = "all",
+      -- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
+      -- not exists then standard path resolution strategy is applied
+      --tsserver_path = "${tsserver}/lib/node_modules/typescript/lib/tsserver.js",
+      tsserver_path = nil,
+      -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
+      -- (see 💅 `styled-components` support section)
+      tsserver_plugins = {},
+      tsserver_max_memory = "auto",
+      -- described below
+      tsserver_format_options = {},
+      tsserver_file_preferences = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+      tsserver_locale = "en",
+      -- mirror of vscode's `typescript.suggest.completefunctioncalls`
+      complete_function_calls = false,
+      include_completions_with_insert_text = true,
+      -- codelens
+      -- warning: experimental feature also in vscode, because it might hit performance of server.
+      -- possible values: ("off"|"all"|"implementations_only"|"references_only")
+      code_lens = "off",
+      -- by default code lenses are displayed on all referencable values and for some of you it can
+      -- be too much this option reduce count of them by removing member references from lenses
+      disable_member_code_lens = true,
+    },
+  }
 ''

@@ -38,6 +38,7 @@ with pkgs.vimPlugins; [
   nvim-metals
   rustaceanvim
   haskell-tools-nvim
+  typescript-tools-nvim
   nvim-dap
   nvim-dap-ui
 
@@ -64,5 +65,6 @@ with pkgs.vimPlugins; [
       css
       norg
       kotlin
+      c_sharp
     ]))
 ]

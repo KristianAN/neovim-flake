@@ -1,6 +1,7 @@
 { pkgs }:
 {
-  nodeDeps = with pkgs; [
+  nodeDeps = with pkgs.nodePackages; [
+    typescript-language-server
   ];
 
   shellDeps = with pkgs; [
@@ -11,5 +12,6 @@
     lua-language-server
     rust-analyzer
     fsautocomplete
+    omnisharp-roslyn
   ];
 }
