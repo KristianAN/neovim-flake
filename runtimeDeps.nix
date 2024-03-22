@@ -2,6 +2,7 @@
 {
   nodeDeps = with pkgs.nodePackages; [
     typescript-language-server
+    volar
   ];
 
   shellDeps = with pkgs; [

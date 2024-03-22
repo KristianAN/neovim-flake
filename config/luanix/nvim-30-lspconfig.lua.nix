@@ -29,6 +29,7 @@ let
     version = "1.2.2";
     outputHash = "sha256-xk2ionn/lBV8AR7n7OR03UuRCoP1/K6KuohhpRwFock=";
   };
+  vuels = pkgs.nodePackages.volar;
 
 in
   /*
@@ -96,6 +97,8 @@ in
   -- TypeScript
   ----------------------------------------------------
 
+  require 'lspconfig'.volar.setup {}
+
   require("typescript-tools").setup {
     on_attach = Lsp_on_attach,
     settings = {
@@ -109,7 +112,13 @@ in
       tsserver_path = "${tsserver}/lib/node_modules/typescript/lib/tsserver.js",
       -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
       -- (see 💅 `styled-components` support section)
-      tsserver_plugins = {},
+      tsserver_plugins = {
+        {
+          name = "@vue/typescript-plugin",
+          location = "${vuels}/node_modules/@vue/typescript-plugin",
+          languages = {"javascript", "typescript", "vue"},
+        },
+      },
       tsserver_max_memory = "auto",
       -- described below
       tsserver_format_options = {},
