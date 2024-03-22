@@ -28,7 +28,6 @@ with pkgs.vimPlugins; [
 
   # Editing
   nvim-autopairs
-  nvim-ts-autotag
 
   #theme
   midnight-nvim
