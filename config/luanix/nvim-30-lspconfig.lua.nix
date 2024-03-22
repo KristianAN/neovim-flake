@@ -106,8 +106,7 @@ in
       expose_as_code_action = "all",
       -- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
       -- not exists then standard path resolution strategy is applied
-      --tsserver_path = "${tsserver}/lib/node_modules/typescript/lib/tsserver.js",
-      tsserver_path = nil,
+      tsserver_path = "${tsserver}/lib/node_modules/typescript/lib",
       -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
       -- (see 💅 `styled-components` support section)
       tsserver_plugins = {},
