@@ -28,6 +28,7 @@ with pkgs.vimPlugins; [
 
   # Editing
   nvim-autopairs
+  nvim-surround
 
   #theme
   midnight-nvim
