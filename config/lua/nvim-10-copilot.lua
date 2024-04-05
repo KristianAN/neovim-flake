@@ -1,19 +1,6 @@
-require("copilot").setup {
-  server_opts_overrides = {
-    trace = "verbose",
-    settings = {
-      advanced = {
-        listCount = 10,         -- #completions for panel
-        inlineSuggestCount = 3, -- #completions for getCompletions
-      }
-    },
-  }
-}
+require("copilot").setup {}
 
-require("CopilotChat").setup {
-  debug = true, -- Enable debugging
-  -- See Configuration section for rest
-}
+require("CopilotChat").setup {}
 
 vim.keymap.set({ 'n', 'v' }, '<leader>cc', '<cmd>CopilotChatToggle<cr>', { desc = "CopilotChat - Toggle" })
 vim.keymap.set({ 'n', 'v' }, '<leader>cce', '<cmd>CopilotChatExplain<cr>', { desc = "CopilotChat - Explain code" })
