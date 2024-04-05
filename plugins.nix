@@ -25,6 +25,8 @@ with pkgs.vimPlugins; [
   cmp-path
   cmp-cmdline
   luasnip
+  copilot-lua
+  copilotchat-nvim
 
   # Editing
   nvim-autopairs

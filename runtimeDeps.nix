@@ -14,5 +14,6 @@
     rust-analyzer
     fsautocomplete
     omnisharp-roslyn
+    nodejs_20
   ];
 }

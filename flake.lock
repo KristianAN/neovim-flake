@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "copilotchat-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712273161,
+        "narHash": "sha256-EXgJbAueU7YDklmclUlSh/zdYqb0hLF9Imiw+5XKunk=",
+        "owner": "copilotc-nvim",
+        "repo": "copilotchat.nvim",
+        "rev": "fae15e1687e2436f308e1f795d03370a64432813",
+        "type": "github"
+      },
+      "original": {
+        "owner": "copilotc-nvim",
+        "repo": "copilotchat.nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -91,6 +107,7 @@
     },
     "root": {
       "inputs": {
+        "copilotchat-nvim": "copilotchat-nvim",
         "flake-utils": "flake-utils",
         "midnight-nvim": "midnight-nvim",
         "neovim": "neovim",
