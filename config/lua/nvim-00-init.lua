@@ -27,4 +27,4 @@ vim.opt.expandtab = true
 
 -- grep backend
 vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
-vim.o.grepformat = vim.o.grepformat .. '%f:%l:%c:%m'
+vim.o.grepformat = '%f:%l:%c:%m'
