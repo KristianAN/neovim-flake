@@ -24,3 +24,7 @@ vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+
+-- grep backend
+vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
+vim.o.grepformat = vim.o.grepformat .. '%f:%l:%c:%m'
