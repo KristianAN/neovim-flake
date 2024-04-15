@@ -69,5 +69,6 @@ with pkgs.vimPlugins; [
       norg
       kotlin
       c_sharp
+      gleam
     ]))
 ]

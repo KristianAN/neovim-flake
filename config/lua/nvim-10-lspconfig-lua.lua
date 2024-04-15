@@ -47,6 +47,10 @@ vim.g.haskell_tools = {
   },
 }
 
+require 'lspconfig'.gleam.setup {
+  on_attach = Lsp_on_attach,
+}
+
 require 'lspconfig'.fsautocomplete.setup {
   on_attach = Lsp_on_attach,
 }
