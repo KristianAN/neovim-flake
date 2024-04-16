@@ -14,7 +14,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
--- vim.cmd [[colorscheme midnight]]
+vim.cmd [[colorscheme kanagawa-lotus]]
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 -- Folding with treesitter

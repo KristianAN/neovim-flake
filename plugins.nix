@@ -34,6 +34,7 @@ with pkgs.vimPlugins; [
 
   #theme
   midnight-nvim
+  kanagawa-nvim
 
   # lsp stuff
   nvim-lspconfig
