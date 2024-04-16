@@ -14,7 +14,29 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme kanagawa-lotus]]
+vim.cmd [[colorscheme kanagawa-dragon]]
+
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'LSP: ' .. desc
+  end
+
+  vim.keymap.set('n', keys, func, { buffer = 0, desc = desc })
+end
+
+local function toggle_theme()
+  local current_theme = vim.g.colors_name
+  if current_theme == "kanagawa-lotus" then
+    vim.cmd [[colorscheme kanagawa-dragon]]
+    vim.g.colors_name = "kanagawa-dragon"
+  else
+    vim.cmd [[colorscheme kanagawa-lotus]]
+    vim.g.colors_name = "kanagawa-lotus"
+  end
+end
+
+nmap('<leader>tt', toggle_theme, 'Toggle dark/light')
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 -- Folding with treesitter
