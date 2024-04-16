@@ -23,9 +23,9 @@ Lsp_on_attach = function(_, bufnr)
   nmap('<leader>gs', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
   nmap('<leader>gw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
   nmap('<leader>gh', function()
-    local enabled = vim.lsp.inlay_hint.is_enabled()
-    vim.lsp.inlay_hint.enable(0, not enabled)
-  end, 'Toggle Inlay Hints')
+    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(nil))
+  end
+  , 'Toggle Inlay Hints')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
