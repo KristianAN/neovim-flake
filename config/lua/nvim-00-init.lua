@@ -21,7 +21,7 @@ local nmap = function(keys, func, desc)
     desc = 'LSP: ' .. desc
   end
 
-  vim.keymap.set('n', keys, func, { buffer = 0, desc = desc })
+  vim.keymap.set('n', keys, func, { desc = desc })
 end
 
 local function toggle_theme()
