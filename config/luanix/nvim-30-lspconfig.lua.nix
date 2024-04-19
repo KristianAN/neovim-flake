@@ -106,7 +106,7 @@ in
     "typescript",
     "vue",
     },
-    init_oftions = {
+    init_options = {
       plugins = {
         {
           name = "@vue/typescript-plugin",
