@@ -29,7 +29,7 @@ let
     version = "1.3.0";
     outputHash = "sha256-otN4sqV2a0itLOoJ7x+VSMe0tl3y4WVovbA1HOpZVDw=";
   };
-  vuels = pkgs.nodePackages.volar;
+  volar = pkgs.nodePackages.volar;
 
 in
   /*
@@ -96,6 +96,11 @@ in
   ----------------------------------------------------
   -- TypeScript
   ----------------------------------------------------
+  -- pkgs.nodePackages.typescript-language-server;
+  require("lspconfig").voalar.setup {
+    on_attach = Lsp_on_attach,
+    cmd = {"${volar}/bin/vue-language-server", "--stdio"}
+  }
 
   require("lspconfig").tsserver.setup {
     on_attach = Lsp_on_attach,
