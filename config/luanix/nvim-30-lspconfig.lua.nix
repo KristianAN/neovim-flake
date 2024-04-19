@@ -100,7 +100,7 @@ in
   require 'lspconfig'.volar.setup {}
 
   require("lspconfig").tsserver.setup {
-    cmd = { "node", "${tsserver}/lib/node_modules/typescript/lib/tsserver.js", "--stdio" },
+    cmd = {"${tsserver}/bin/typescript-language-server", "--stdio"},
     filetypes = {
     "javascript",
     "typescript",
