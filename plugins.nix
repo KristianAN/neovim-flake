@@ -42,7 +42,6 @@ with pkgs.vimPlugins; [
   nvim-metals
   rustaceanvim
   haskell-tools-nvim
-  typescript-tools-nvim
   nvim-dap
   nvim-dap-ui
 

@@ -99,50 +99,21 @@ in
 
   require 'lspconfig'.volar.setup {}
 
-  require("typescript-tools").setup {
-    on_attach = Lsp_on_attach,
-    settings = {
-      -- spawn additional tsserver instance to calculate diagnostics on it
-      separate_diagnostic_server = true,
-      -- "change"|"insert_leave" determine when the client asks the server about diagnostic
-      publish_diagnostic_on = "insert_leave",
-      expose_as_code_action = "all",
-      -- string|nil - specify a custom path to `tsserver.js` file, if this is nil or file under path
-      -- not exists then standard path resolution strategy is applied
-      tsserver_path = "${tsserver}/lib/node_modules/typescript/lib/tsserver.js",
-      -- specify a list of plugins to load by tsserver, e.g., for support `styled-components`
-      -- (see 💅 `styled-components` support section)
-      tsserver_plugins = {
+  require("lspconfig").tsserver.setup {
+    cmd = { "node", "${tsserver}/lib/node_modules/typescript/lib/tsserver.js", "--stdio" },
+    filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+    },
+    init_oftions = {
+      plugins = {
         {
           name = "@vue/typescript-plugin",
           location = "${vuels}/node_modules/@vue/typescript-plugin",
           languages = {"javascript", "typescript", "vue"},
         },
-      },
-      tsserver_max_memory = "auto",
-      -- described below
-      tsserver_format_options = {},
-      tsserver_file_preferences = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-      tsserver_locale = "en",
-      -- mirror of vscode's `typescript.suggest.completefunctioncalls`
-      complete_function_calls = false,
-      include_completions_with_insert_text = true,
-      -- codelens
-      -- warning: experimental feature also in vscode, because it might hit performance of server.
-      -- possible values: ("off"|"all"|"implementations_only"|"references_only")
-      code_lens = "off",
-      -- by default code lenses are displayed on all referencable values and for some of you it can
-      -- be too much this option reduce count of them by removing member references from lenses
-      disable_member_code_lens = true,
-    },
+      }
+    }
   }
 ''
