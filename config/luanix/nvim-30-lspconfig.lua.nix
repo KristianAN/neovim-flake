@@ -114,7 +114,7 @@ in
       plugins = {
         {
           name = "@vue/typescript-plugin",
-          location = "${volar}/node_modules/@vue/typescript-plugin",
+          location = "${volar}/lib/node_modules/@vue/typescript-plugin",
           languages = {"javascript", "typescript", "vue"},
         },
       }
