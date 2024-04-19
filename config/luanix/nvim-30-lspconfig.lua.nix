@@ -99,7 +99,8 @@ in
   -- pkgs.nodePackages.typescript-language-server;
   require("lspconfig").volar.setup {
     on_attach = Lsp_on_attach,
-    cmd = {"${volar}/bin/vue-language-server", "--stdio"}
+    cmd = {"${volar}/bin/vue-language-server", "--stdio"},
+    filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
   }
 
   require("lspconfig").tsserver.setup {
@@ -108,16 +109,16 @@ in
     filetypes = {
     "javascript",
     "typescript",
-    "vue",
-    },
-    init_options = {
-      plugins = {
-        {
-          name = "@vue/typescript-plugin",
-          location = "${volar}/lib/node_modules/@vue/typescript-plugin",
-          languages = {"javascript", "typescript", "vue"},
-        },
-      }
     }
+    -- Add this for volar 2.0
+    -- init_options = {
+    --   plugins = {
+    --     {
+    --       name = "@vue/typescript-plugin",
+    --       location = "${volar}/lib/node_modules/@vue/typescript-plugin",
+    --       languages = {"javascript", "typescript", "vue"},
+    --     },
+    --   }
+    -- }
   }
 ''
