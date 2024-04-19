@@ -97,9 +97,8 @@ in
   -- TypeScript
   ----------------------------------------------------
 
-  require 'lspconfig'.volar.setup {}
-
   require("lspconfig").tsserver.setup {
+    on_attach = Lsp_on_attach,
     cmd = {"${tsserver}/bin/typescript-language-server", "--stdio"},
     filetypes = {
     "javascript",
