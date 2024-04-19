@@ -97,7 +97,7 @@ in
   -- TypeScript
   ----------------------------------------------------
   -- pkgs.nodePackages.typescript-language-server;
-  require("lspconfig").voalar.setup {
+  require("lspconfig").volar.setup {
     on_attach = Lsp_on_attach,
     cmd = {"${volar}/bin/vue-language-server", "--stdio"}
   }
