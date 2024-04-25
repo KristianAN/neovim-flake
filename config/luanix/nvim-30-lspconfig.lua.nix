@@ -21,6 +21,7 @@ let
       inherit version;
       extraJavaOpts = old.extraJavaOpts + " -Dmetals.client=nvim-lsp";
       buildInputs = [ metalsDeps ];
+      jre = pkgs.temurin-bin-21;
     });
 
   omnisharp = pkgs.omnisharp-roslyn;
