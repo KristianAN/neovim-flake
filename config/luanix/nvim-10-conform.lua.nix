@@ -12,11 +12,5 @@ require("conform").setup({
     timeout_ms = 500,
     lsp_fallback = true,
   },
-  formatters = {
-    google-java-format = {
-      -- Change where to find the command
-      command = "${pkgs.google-java-format}/bin/google-java-format",
-      }
-  }
 })
 ''
