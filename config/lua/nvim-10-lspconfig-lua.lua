@@ -22,18 +22,12 @@ Lsp_on_attach = function(_, bufnr)
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
   nmap('<leader>gs', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
   nmap('<leader>gw', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-  nmap('<leader>gh', function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, 'Toggle Inlay Hints')
 
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
 end
 
 vim.g.rustaceanvim = {
