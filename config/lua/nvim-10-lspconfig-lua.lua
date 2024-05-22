@@ -52,6 +52,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --
     -- When you move your cursor, the highlights will be cleared (the second autocommand).
     local client = vim.lsp.get_client_by_id(event.data.client_id)
+
     if client and client.server_capabilities.documentHighlightProvider then
       local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
       vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -84,6 +85,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end, '[T]oggle Inlay [H]ints')
     end
+
+    -- Disables semantic highlighting from the LSP, highlights will only 
+    -- come from the LSP now. This is useful for slower language servers
+    client.server_capabilities.semanticTokensProvider = nil
   end,
 })
 
