@@ -39,7 +39,7 @@
       "-configuration", jdtls_config_dir,
       "-data", workspace_folder,
     };
-    root_dir = get_root_dir;
+    root_dir = get_root_dir();
     init_options = {
       bundles = {
         vim.fn.glob("${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-*.jar", 1),
