@@ -11,7 +11,7 @@
   local workspace_dir = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local nvim_jdtls_group = vim.api.nvim_create_augroup("nvim-jdtls", { clear = true })
   local config = {
-    cmd = { '${pkgs.jdt-language-server}/bin/jdtls', '--data', workspace_dir },
+    cmd = { '${pkgs.jdt-language-server}/bin/jdtls', '-data', workspace_dir },
     root_dir = root_dir,
     init_options = {
       bundles = {
@@ -21,13 +21,14 @@
     }
   }
 
-  local nvim_jdtls_group = vim.api.nvim_create_augroup("nvim-jdtls", { clear = true })
   vim.api.nvim_create_autocmd(
     "FileType",
     {
       pattern = { "java" },
       callback = function()
         require('jdtls').start_or_attach(config)
+        require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+        require('jdtls.dap').setup_dap_main_class_configs()
       end,
       group = nvim_jdtls_group,
     }
