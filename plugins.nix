@@ -26,6 +26,7 @@ with pkgs.vimPlugins; [
   rustaceanvim
   nvim-dap
   nvim-dap-ui
+  conform-nvim
 
   # Files
   oil-nvim

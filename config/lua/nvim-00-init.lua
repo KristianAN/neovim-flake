@@ -1,7 +1,7 @@
 -- Global functions
 Nmap = function(keys, func, desc)
   if desc then
-    desc = 'LSP: ' .. desc
+    desc = '' .. desc
   end
 
   vim.keymap.set('n', keys, func, { desc = desc })
@@ -75,7 +75,6 @@ vim.o.grepformat = '%f:%l:%c:%m'
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Plugins that don't need their own config file
-require('neogit').setup {}
 require('mini.notify').setup()
 require('mini.completion').setup()
 require('mini.pairs').setup()

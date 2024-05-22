@@ -1,4 +1,3 @@
-local opt = { noremap = true }
 require('telescope').setup {
   defaults = {
     mappings = {
