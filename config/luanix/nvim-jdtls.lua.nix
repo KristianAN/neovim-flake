@@ -11,7 +11,7 @@
 
   -- Function to set root_dir to the parent directory of the .git folder
   local function get_root_dir()
-    return lspconfig.util.root_pattern(unpack(root_markers))(vim.fn.expand('%:p:h'))
+    return require('lspconfig').util.root_pattern(unpack(root_markers))(vim.fn.expand('%:p:h'))
   end
   local workspace_folder = home .. "/.cache/jdtls/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local jdtls_config_dir = home .. "/.config/jdtls_config"
