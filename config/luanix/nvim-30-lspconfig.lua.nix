@@ -42,7 +42,6 @@ in
   ----------------------------------------------------
   local metals_config = require("metals").bare_config()
 
-  -- Example of settings
   metals_config.settings = {
     metalsBinaryPath = "${metals-pkg}/bin/metals",
     showImplicitArguments = true,
@@ -51,17 +50,8 @@ in
     excludedPackages = {}
   }
 
-  metals_config.on_attach = Lsp_on_attach
-
-  -- *READ THIS*
-  -- I *highly* recommend setting statusBarProvider to true, however if you do,
-  -- you *have* to have a setting to display this in your statusline or else
-  -- you'll not see any messages from metals. There is more info in the help
-  -- docs about this
-  -- metals_config.init_options.statusBarProvider = "on"
-
   -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-  metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+  -- metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   -- Autocmd that will actually be in charging of starting the whole thing
   local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
@@ -76,6 +66,7 @@ in
       require("metals").initialize_or_attach(metals_config)
       require("metals").setup_dap()
     end,
+
     group = nvim_metals_group,
   })
 
@@ -123,4 +114,15 @@ in
     --   }
     -- }
   }
+
+  vim.g.rustaceanvim = {}
+
+require 'lspconfig'.hls.setup {}
+
+require 'lspconfig'.gleam.setup {}
+
+require 'lspconfig'.fsautocomplete.setup {}
+
+
+
 ''

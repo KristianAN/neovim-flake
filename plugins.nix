@@ -5,47 +5,33 @@ with pkgs.vimPlugins; [
   # UI
   telescope-nvim
   indent-blankline-nvim
-  lualine-nvim
-  which-key-nvim
   trouble-nvim
-  zen-mode-nvim
   nvim-web-devicons
 
   # Git
   gitsigns-nvim
-  fugitive
-
-  # GitHub
-  octo-nvim
-
-  # Completion
-  nvim-cmp
-  cmp-nvim-lsp
-  cmp-buffer
-  cmp-path
-  cmp-cmdline
-  luasnip
-  copilot-lua
-  copilotchat-nvim
+  neogit
 
   # Editing
   nvim-autopairs
   nvim-surround
 
   #theme
-  midnight-nvim
   kanagawa-nvim
 
   # lsp stuff
   nvim-lspconfig
-  nvim-jdtls
   nvim-metals
+  nvim-jdtls
   rustaceanvim
   nvim-dap
   nvim-dap-ui
 
-  # Other
+  # Files
   oil-nvim
+
+  # Other
+  mini-nvim
 
   (nvim-treesitter.withPlugins (plugins:
     with plugins; [

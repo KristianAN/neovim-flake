@@ -12,11 +12,6 @@
       url = "github:numtide/flake-utils";
     };
 
-    midnight-nvim = {
-      url = "github:dasupradyumna/midnight.nvim";
-      flake = false;
-    };
-
     copilotchat-nvim = {
       url = "github:copilotc-nvim/copilotchat.nvim";
       flake = false;
@@ -24,18 +19,13 @@
 
   };
 
-  outputs = { self, nixpkgs, neovim, flake-utils, midnight-nvim , copilotchat-nvim }:
+  outputs = { self, nixpkgs, neovim, flake-utils, copilotchat-nvim }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlayFlakeInputs = prev: final: {
           neovim = neovim.packages.${prev.system}.neovim;
 
           vimPlugins = final.vimPlugins // {
-            midnight-nvim = import ./packages/plugins/midnight-nvim.nix {
-              src = midnight-nvim;
-              pkgs = prev;
-            };
-
             copilotchat-nvim = import ./packages/plugins/copilotchat-nvim.nix {
               src = copilotchat-nvim;
               pkgs = prev;
