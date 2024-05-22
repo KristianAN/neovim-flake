@@ -18,7 +18,7 @@
   os.execute("mkdir -p " .. jdtls_config_dir)
 
   -- Copy from nix store to config dir
-  os.execute("cp -r ${cfg.lsp.package}/config_linux/* " .. jdtls_config_dir)
+  os.execute("cp -r ${pkgs.jdt-language-server}/config_linux/* " .. jdtls_config_dir)
 
   local config = {
     cmd = {
