@@ -13,9 +13,6 @@ vim.g.maplocalleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -80,4 +77,3 @@ require('mini.completion').setup()
 require('mini.pairs').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
-
