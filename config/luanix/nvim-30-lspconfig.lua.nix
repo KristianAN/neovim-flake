@@ -51,7 +51,7 @@ in
   }
 
   -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-  -- metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+  metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
   -- Autocmd that will actually be in charging of starting the whole thing
   local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
