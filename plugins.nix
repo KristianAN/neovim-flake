@@ -13,14 +13,12 @@ with pkgs.vimPlugins; [
   neogit
 
   # Editing
+  luasnip
   nvim-cmp
   cmp-buffer
   cmp-nvim-lsp
   cmp-path
-  cmp-spell
-  cmp-treesitter
   cmp_luasnip
-  luasnip
 
   #theme
   kanagawa-nvim
