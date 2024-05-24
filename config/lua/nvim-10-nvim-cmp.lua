@@ -1,7 +1,14 @@
+local luasnip = require 'luasnip'
+luasnip.config.setup {}
+
 local cmp = require 'cmp'
 
 cmp.setup {
-  snippet = {},
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   completion = { completeopt = 'menu,menuone,noinsert' },
 
   -- For an understanding of why these mappings were
@@ -29,11 +36,31 @@ cmp.setup {
     --  completions whenever it has completion options available.
     ['<C-BS>'] = cmp.mapping.complete {},
 
+    -- Think of <c-l> as moving to the right of your snippet expansion.
+    --  So if you have a snippet that's like:
+    --  function $name($args)
+    --    $body
+    --  end
+    --
+    -- <c-l> will move you to the right of each of the expansion locations.
+    -- <c-h> is similar, except moving you backwards.
+    ['<C-l>'] = cmp.mapping(function()
+      if luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      end
+    end, { 'i', 's' }),
+    ['<C-h>'] = cmp.mapping(function()
+      if luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      end
+    end, { 'i', 's' }),
+
   },
   sources = {
     { name = "nvim_lsp" },
     { name = "treesitter" },
     { name = "buffer" },
+    { name = 'luasnip' },
     { name = "path" },
   },
 }

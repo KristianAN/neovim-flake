@@ -19,6 +19,8 @@ with pkgs.vimPlugins; [
   cmp-path
   cmp-spell
   cmp-treesitter
+  cmp_luasnip
+  luasnip
 
   #theme
   kanagawa-nvim
