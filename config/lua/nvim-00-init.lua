@@ -73,7 +73,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- Plugins that don't need their own config file
 require('mini.notify').setup()
-require('mini.completion').setup()
 require('mini.pairs').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()

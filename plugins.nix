@@ -13,8 +13,12 @@ with pkgs.vimPlugins; [
   neogit
 
   # Editing
-  nvim-autopairs
-  nvim-surround
+  nvim-cmp
+  cmp-buffer
+  cmp-nvim-lsp
+  cmp-path
+  cmp-spell
+  cmp-treesitter
 
   #theme
   kanagawa-nvim

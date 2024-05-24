@@ -86,7 +86,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, '[T]oggle Inlay [H]ints')
     end
 
-    -- Disables semantic highlighting from the LSP, highlights will only 
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+    -- Disables semantic highlighting from the LSP, highlights will only
     -- come from the LSP now. This is useful for slower language servers
     client.server_capabilities.semanticTokensProvider = nil
   end,
