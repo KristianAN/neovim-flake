@@ -14,6 +14,7 @@ with pkgs.vimPlugins; [
 
   # Editing
   luasnip
+  nvim-autopairs
   nvim-cmp
   cmp-buffer
   cmp-nvim-lsp
