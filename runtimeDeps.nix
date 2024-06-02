@@ -14,5 +14,6 @@
     fsautocomplete
     omnisharp-roslyn
     nodejs_20
+    bleep
   ];
 }
