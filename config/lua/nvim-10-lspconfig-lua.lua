@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  See `:help K` for why this keymap.
     map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
-    map('H', vim.lsp.buf.signature_help, 'Hover Documentation')
+    map('<C-h>', vim.lsp.buf.signature_help, 'Signature [h]elp')
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
