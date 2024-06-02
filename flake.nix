@@ -17,16 +17,14 @@
       flake = false;
     };
 
-    bleep-flake.url = "github:KristianAN/bleep-flake"; # The bleep flake
 
   };
 
-  outputs = { self, nixpkgs, neovim, flake-utils, copilotchat-nvim, bleep-flake }:
+  outputs = { self, nixpkgs, neovim, flake-utils, copilotchat-nvim }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlayFlakeInputs = prev: final: {
           neovim = neovim.packages.${prev.system}.neovim;
-          bleep = bleep-flake.defaultPackage.${system}; # Your bleep system binary
 
           vimPlugins = final.vimPlugins // {
             copilotchat-nvim = import ./packages/plugins/copilotchat-nvim.nix {
