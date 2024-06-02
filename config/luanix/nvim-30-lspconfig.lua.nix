@@ -43,7 +43,7 @@ in
   local metals_config = require("metals").bare_config()
 
   metals_config.settings = {
-    -- metalsBinaryPath = "${metals-pkg}/bin/metals",
+    metalsBinaryPath = "${metals-pkg}/bin/metals",
     showImplicitArguments = true,
     showImplicitConversionsAndClasses = true,
     showInferredType = true,
