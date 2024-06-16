@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "copilotchat-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717194976,
-        "narHash": "sha256-bdGql7WBn4yk44rd+6fK3CwBZNOZOlatnKjJLoyHBDY=",
-        "owner": "copilotc-nvim",
-        "repo": "copilotchat.nvim",
-        "rev": "82923efe22b604cf9c0cad0bb2a74aa9247755ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "copilotc-nvim",
-        "repo": "copilotchat.nvim",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -51,7 +35,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim",
+          "neovimNightly",
           "nixpkgs"
         ]
       },
@@ -72,7 +56,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim",
+          "neovimNightly",
           "hercules-ci-effects",
           "nixpkgs"
         ]
@@ -113,11 +97,11 @@
         "flake-compat": "flake-compat_2",
         "gitignore": "gitignore",
         "nixpkgs": [
-          "neovim",
+          "neovimNightly",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "neovim",
+          "neovimNightly",
           "nixpkgs"
         ]
       },
@@ -138,7 +122,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "neovim",
+          "neovimNightly",
           "git-hooks",
           "nixpkgs"
         ]
@@ -161,7 +145,7 @@
       "inputs": {
         "flake-parts": "flake-parts_2",
         "nixpkgs": [
-          "neovim",
+          "neovimNightly",
           "nixpkgs"
         ]
       },
@@ -179,7 +163,23 @@
         "type": "github"
       }
     },
-    "neovim": {
+    "neovim-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718492826,
+        "narHash": "sha256-YaZyuhBSZFnwoMwe790NjzUyff/Ml93jJ6wxj4dCFdc=",
+        "owner": "neovim",
+        "repo": "neovim",
+        "rev": "aa319da4024a77b0f7c40e08c6f5d5b512a7f899",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "neovimNightly": {
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
@@ -204,22 +204,6 @@
         "type": "github"
       }
     },
-    "neovim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718492826,
-        "narHash": "sha256-YaZyuhBSZFnwoMwe790NjzUyff/Ml93jJ6wxj4dCFdc=",
-        "owner": "neovim",
-        "repo": "neovim",
-        "rev": "aa319da4024a77b0f7c40e08c6f5d5b512a7f899",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "neovim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718318537,
@@ -238,9 +222,8 @@
     },
     "root": {
       "inputs": {
-        "copilotchat-nvim": "copilotchat-nvim",
         "flake-utils": "flake-utils",
-        "neovim": "neovim",
+        "neovimNightly": "neovimNightly",
         "nixpkgs": "nixpkgs"
       }
     },

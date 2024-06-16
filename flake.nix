@@ -1,36 +1,29 @@
 {
   description = "My own Neovim flake";
   inputs = {
+
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    neovim = {
+
+    neovimNightly = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
 
-    copilotchat-nvim = {
-      url = "github:copilotc-nvim/copilotchat.nvim";
-      flake = false;
-    };
-
-
   };
 
-  outputs = { self, nixpkgs, neovim, flake-utils, copilotchat-nvim }:
+  outputs = { self, nixpkgs, neovimNightly, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlayFlakeInputs = prev: final: {
-          neovim = neovim.packages.${prev.system}.neovim;
+          neovim = neovimNightly.packages.${prev.system}.neovim;
 
           vimPlugins = final.vimPlugins // {
-            copilotchat-nvim = import ./packages/plugins/copilotchat-nvim.nix {
-              src = copilotchat-nvim;
-              pkgs = prev;
-            };
 
           };
         };

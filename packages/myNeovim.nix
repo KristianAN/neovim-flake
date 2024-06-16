@@ -14,7 +14,7 @@ let
     name = "neovim-runtime-shell-deps";
   };
 
-  myNeovimUnwrapped = pkgs.wrapNeovim pkgs.neovim-unwrapped {
+  myNeovimUnwrapped = pkgs.wrapNeovim pkgs.neovim {
     configure = {
       inherit customRC;
       packages.all.start = plugins;
