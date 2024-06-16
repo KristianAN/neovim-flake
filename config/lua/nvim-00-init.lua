@@ -77,4 +77,5 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.files').setup()
 Nmap('<leader>o', require('mini.files').open, 'open file browser')
-Nmap('<leader>oc', require('mini.files').open(vim.api.nvim_buf_get_name(0)), 'open file browser in current dir')
+Nmap('<leader>oc', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end,
+  'open file browser in current dir')
