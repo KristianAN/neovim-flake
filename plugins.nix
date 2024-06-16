@@ -18,6 +18,7 @@ with pkgs.vimPlugins; [
   nvim-cmp
   cmp-buffer
   cmp-nvim-lsp
+  cmp-nvim-lsp-signature-help
   cmp-path
   cmp_luasnip
 
