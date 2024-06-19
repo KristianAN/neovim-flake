@@ -71,6 +71,9 @@ vim.o.grepformat = '%f:%l:%c:%m'
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- tell vim to use utf-8
+vim.opt.encoding = 'utf-8'
+
 -- Plugins that don't need their own config file
 -- require('mini.notify').setup()
 require('mini.surround').setup()
