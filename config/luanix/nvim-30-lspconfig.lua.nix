@@ -30,7 +30,7 @@ let
     version = "1.3.1";
     outputHash = "sha256-ugTYjXgD5SHagRtc1RNsnfcLAXPeWSHcos82ewr3UIs=";
   };
-  volar = pkgs.nodePackages.volar;
+  vuels = pkgs.nodePackages.vue-language-server;
 
 in
   /*
@@ -92,7 +92,7 @@ in
   -- pkgs.nodePackages.typescript-language-server;
   require("lspconfig").volar.setup {
     on_attach = Lsp_on_attach,
-    cmd = {"${volar}/bin/vue-language-server", "--stdio"},
+    cmd = {"${vuels}/bin/vue-language-server", "--stdio"},
     filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
   }
 
@@ -102,17 +102,17 @@ in
     filetypes = {
     "javascript",
     "typescript",
+    },
+
+    init_options = {
+      plugins = {
+        {
+          name = "@vue/typescript-plugin",
+          location = "${vuels}/lib/node_modules/@vue/typescript-plugin",
+          languages = {"javascript", "typescript", "vue"},
+        },
+      }
     }
-    -- Add this for volar 2.0
-    -- init_options = {
-    --   plugins = {
-    --     {
-    --       name = "@vue/typescript-plugin",
-    --       location = "${volar}/lib/node_modules/@vue/typescript-plugin",
-    --       languages = {"javascript", "typescript", "vue"},
-    --     },
-    --   }
-    -- }
   }
 
   vim.g.rustaceanvim = {}

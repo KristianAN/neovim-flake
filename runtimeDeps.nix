@@ -2,7 +2,7 @@
 {
   nodeDeps = with pkgs.nodePackages; [
     typescript-language-server
-    volar
+    vue-language-server
   ];
 
   shellDeps = with pkgs; [
