@@ -60,7 +60,7 @@ in
     -- NOTE: You may or may not want java included here. You will need it if you
     -- want basic Java support but it may also conflict if you are using
     -- something like nvim-jdtls which also works on a java filetype autocmd.
-    pattern = { "scala", "sbt", "bleep.yaml" },
+    pattern = { "scala", "sbt", "bleep.yaml", "java" },
 
     callback = function()
       require("metals").initialize_or_attach(metals_config)

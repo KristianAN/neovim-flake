@@ -28,7 +28,6 @@ with pkgs.vimPlugins; [
   # lsp stuff
   nvim-lspconfig
   nvim-metals
-  nvim-jdtls
   rustaceanvim
   nvim-dap
   nvim-dap-ui
