@@ -92,7 +92,7 @@ in
   -- pkgs.nodePackages.typescript-language-server;
   require("lspconfig").volar.setup {
     on_attach = Lsp_on_attach,
-    cmd = {"${vuels}/bin/vue-language-server", "--stdio"},
+    cmd = {"${vuels}/bin/vls", "--stdio"},
     filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
   }
 
