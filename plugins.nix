@@ -1,7 +1,8 @@
 { pkgs }:
 let
 in
-with pkgs.vimPlugins; [
+with pkgs.vimPlugins;
+[
   # UI
   telescope-nvim
   indent-blankline-nvim
@@ -32,15 +33,13 @@ with pkgs.vimPlugins; [
   nvim-dap
   nvim-dap-ui
   conform-nvim
-
-  # Files
-  oil-nvim
+  haskell-tools-nvim
 
   # Other
   mini-nvim
 
-  (nvim-treesitter.withPlugins (plugins:
-    with plugins; [
+  (nvim-treesitter.withPlugins (
+    plugins: with plugins; [
       scala
       nix
       java
@@ -60,5 +59,6 @@ with pkgs.vimPlugins; [
       kotlin
       c_sharp
       gleam
-    ]))
+    ]
+  ))
 ]

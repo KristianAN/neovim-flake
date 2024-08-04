@@ -7,11 +7,16 @@
 
   shellDeps = with pkgs; [
     ripgrep
-    jdt-language-server
     lua-language-server
     rust-analyzer
     fsautocomplete
     omnisharp-roslyn
     nodejs_20
+    nixd
+    nixfmt-rfc-style
+    scalafmt
+    haskellPackages.ormolu
+    rustfmt
+    prettierd
   ];
 }
