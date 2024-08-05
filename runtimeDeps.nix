@@ -18,5 +18,6 @@
     haskellPackages.ormolu
     rustfmt
     prettierd
+    yaml-language-server
   ];
 }

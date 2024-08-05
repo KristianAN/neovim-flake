@@ -129,3 +129,13 @@ require 'lspconfig'.lua_ls.setup {
     return true
   end
 }
+
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json"] = "bleep.yaml",
+      },
+    },
+  }
+}
