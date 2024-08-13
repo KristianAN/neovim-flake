@@ -3,7 +3,6 @@ Nmap = function(keys, func, desc)
   if desc then
     desc = '' .. desc
   end
-
   vim.keymap.set('n', keys, func, { desc = desc })
 end
 
@@ -83,10 +82,11 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.opt.encoding = 'utf-8'
 
 -- Plugins that don't need their own config file
--- require('mini.notify').setup()
+require('mini.notify').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.files').setup()
+
 Nmap('<leader>or', require('mini.files').open, 'open file browser')
 Nmap('<leader>oc', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end,
   'open file browser in current dir')
