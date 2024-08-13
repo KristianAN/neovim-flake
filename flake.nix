@@ -17,8 +17,15 @@
 
   };
 
-  outputs = { self, nixpkgs, neovimNightly, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      neovimNightly,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlayFlakeInputs = prev: final: {
           neovim = neovimNightly.packages.${prev.system}.neovim;
@@ -28,9 +35,7 @@
           };
         };
 
-        overlayMyNeovim = prev: final: {
-          myNeovim = import ./packages/myNeovim.nix { pkgs = prev; };
-        };
+        overlayMyNeovim = prev: final: { myNeovim = import ./packages/myNeovim.nix { pkgs = prev; }; };
 
         pkgs = import nixpkgs {
           inherit system;
@@ -51,5 +56,6 @@
           nvim = flake-utils.lib.mkApp { drv = self.packages.${system}.nvim; };
           default = nvim;
         };
-      });
+      }
+    );
 }
