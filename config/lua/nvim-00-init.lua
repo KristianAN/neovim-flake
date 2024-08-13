@@ -32,7 +32,7 @@ vim.opt.showmode = false
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme kanagawa-dragon ]]
+vim.cmd [[colorscheme kanagawa-wave]]
 
 local function toggle_theme()
   if vim.o.background == "dark" then
