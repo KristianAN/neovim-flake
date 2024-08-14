@@ -1,4 +1,4 @@
--- Global functions
+-- Global functionsinit
 Nmap = function(keys, func, desc)
   if desc then
     desc = '' .. desc
