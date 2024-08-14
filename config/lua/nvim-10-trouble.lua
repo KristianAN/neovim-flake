@@ -11,10 +11,6 @@ vim.keymap.set("n", "X", function() require("trouble").first({ skip_groups = tru
   { desc = "Trouble: first error" })
 vim.keymap.set("n", "<leader>X", function() require("trouble").last({ skip_groups = true, jump = true }) end,
   { desc = "Trouble: last error" })
-vim.keymap.set("n", "<C-.>", function() require("trouble").next({ skip_groups = true, jump = true }) end,
-  { desc = "Trouble: next error" })
-vim.keymap.set("n", "<C-,>", function() require("trouble").previous({ skip_groups = true, jump = true }) end,
-  { desc = "Trouble: previous error" })
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = 'Trouble' })
 vim.keymap.set("n", "<leader>xX",
   "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
