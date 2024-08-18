@@ -71,10 +71,29 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.opt.encoding = 'utf-8'
 
 -- Plugins that don't need their own config file
-require('mini.notify').setup()
+require('mini.notify').setup({
+  window = {
+    config = {},
+    winblend = 25,
+  },
+})
+vim.cmd("au ColorScheme * highlight MiniNotifyNormal guibg=NONE")
+vim.cmd("au ColorScheme * highlight MiniNotifyTitle guibg=NONE")
+vim.cmd("au ColorScheme * highlight MiniNotifyBorder guibg=NONE")
+
 require('mini.surround').setup()
 require('mini.statusline').setup()
-require('mini.files').setup()
+require('mini.files').setup({
+  window = {
+    config = {},
+    winblend = 25,
+  },
+})
+
+
+vim.cmd("au ColorScheme * highlight MiniFilesNormal guibg=NONE")
+vim.cmd("au ColorScheme * highlight MiniFilesTitle guibg=NONE")
+vim.cmd("au ColorScheme * highlight MiniFilesBorder guibg=NONE")
 
 Nmap('<leader>or', require('mini.files').open, 'open file browser')
 Nmap('<leader>oc', function() require('mini.files').open(vim.api.nvim_buf_get_name(0)) end,
