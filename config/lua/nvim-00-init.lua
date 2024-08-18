@@ -74,9 +74,10 @@ vim.opt.encoding = 'utf-8'
 require('mini.notify').setup({
   window = {
     config = {},
-    winblend = 25,
+    winblend = 0,
   },
 })
+
 vim.cmd("au ColorScheme * highlight MiniNotifyNormal guibg=NONE")
 vim.cmd("au ColorScheme * highlight MiniNotifyTitle guibg=NONE")
 vim.cmd("au ColorScheme * highlight MiniNotifyBorder guibg=NONE")
@@ -86,10 +87,9 @@ require('mini.statusline').setup()
 require('mini.files').setup({
   window = {
     config = {},
-    winblend = 25,
+    winblend = 0,
   },
 })
-
 
 vim.cmd("au ColorScheme * highlight MiniFilesNormal guibg=NONE")
 vim.cmd("au ColorScheme * highlight MiniFilesTitle guibg=NONE")
