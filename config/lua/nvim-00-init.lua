@@ -31,24 +31,13 @@ vim.opt.showmode = false
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme kanagawa-dragon]]
 
--- local function toggle_theme()
---   if vim.o.background == "dark" then
---     vim.o.background = "light"
---   else
---     vim.o.background = "dark"
---   end
--- end
 
 local function toggle_theme()
-  local current_theme = vim.g.colors_name
-  if current_theme == "kanagawa-lotus" then
-    vim.cmd [[colorscheme kanagawa-dragon]]
-    vim.g.colors_name = "kanagawa-dragon"
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
   else
-    vim.cmd [[colorscheme kanagawa-lotus]]
-    vim.g.colors_name = "kanagawa-lotus"
+    vim.o.background = "dark"
   end
 end
 
