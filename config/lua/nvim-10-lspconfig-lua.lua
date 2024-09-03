@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Disables semantic highlighting from the LSP, highlights will only
     -- come from the LSP now. This is useful for slower language servers
-    client.server_capabilities.semanticTokensProvider = nil
+    -- client.server_capabilities.semanticTokensProvider = nil
   end,
 })
 

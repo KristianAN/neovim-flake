@@ -19,5 +19,6 @@
     rustfmt
     prettierd
     yaml-language-server
+    jdt-language-server
   ];
 }
