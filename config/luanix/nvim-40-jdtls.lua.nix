@@ -67,6 +67,6 @@
         require('jdtls.dap').setup_dap_main_class_configs()
       end,
       group = nvim_jdtls_group,
-    }
+    })
 
 ''

@@ -34,6 +34,7 @@ with pkgs.vimPlugins;
   nvim-dap-ui
   conform-nvim
   haskell-tools-nvim
+  nvim-jdtls
 
   # Other
   mini-nvim
