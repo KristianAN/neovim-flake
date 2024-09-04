@@ -55,6 +55,10 @@
     filetypes = { "java" };
   }
 
+  config.on_init = function(client, _)
+    client.notify('workspace/didChangeConfiguration', { settings = config.settings })
+  end
+
   local nvim_jdtls_group = vim.api.nvim_create_augroup("nvim-jdtls", { clear = true })
 
   vim.api.nvim_create_autocmd(
