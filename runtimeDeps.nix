@@ -20,5 +20,7 @@
     prettierd
     yaml-language-server
     jdt-language-server
+    basedpyright
+    black
   ];
 }

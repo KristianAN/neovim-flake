@@ -134,6 +134,8 @@ require 'lspconfig'.lua_ls.setup {
   end
 }
 
+require 'lspconfig'.basedpyright.setup {}
+
 require('lspconfig').yamlls.setup {
   settings = {
     yaml = {

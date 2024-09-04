@@ -8,7 +8,8 @@
       haskell = { "ormolu"},
       rust = { "rustfmt" },
       javascript = { "prettierd" },
-      typescript = { "prettierd" }
+      typescript = { "prettierd" },
+      python = { "black" }
     },
 
     format_on_save = {
