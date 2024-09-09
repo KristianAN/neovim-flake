@@ -1,4 +1,4 @@
--- [nfnl] Compiled from nvim-00-init2.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from nvim-00-init.fnl by https://github.com/Olical/nfnl, do not edit.
 local function toggle_theme()
   if (vim.o.background == "dark") then
     vim.o.background = "light"
