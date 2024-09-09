@@ -9,7 +9,8 @@
       rust = { "rustfmt" },
       javascript = { "prettierd" },
       typescript = { "prettierd" },
-      python = { "black" }
+      python = { "black" },
+      fennel = { "fnlfmt" }
     },
 
     format_on_save = {

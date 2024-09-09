@@ -39,6 +39,7 @@ with pkgs.vimPlugins;
 
   # Other
   mini-nvim
+  nfnl
 
   (nvim-treesitter.withPlugins (
     plugins: with plugins; [
@@ -62,6 +63,7 @@ with pkgs.vimPlugins;
       c_sharp
       gleam
       clojure
+      fennel
     ]
   ))
 ]

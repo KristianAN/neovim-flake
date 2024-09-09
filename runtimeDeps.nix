@@ -23,5 +23,7 @@
     basedpyright
     black
     clojure-lsp
+    fennel-ls
+    fnlfmt
   ];
 }
