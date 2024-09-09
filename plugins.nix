@@ -35,6 +35,7 @@ with pkgs.vimPlugins;
   conform-nvim
   haskell-tools-nvim
   nvim-jdtls
+  conjure
 
   # Other
   mini-nvim
@@ -60,6 +61,7 @@ with pkgs.vimPlugins;
       kotlin
       c_sharp
       gleam
+      clojure
     ]
   ))
 ]

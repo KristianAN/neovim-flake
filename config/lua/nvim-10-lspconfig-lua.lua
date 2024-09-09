@@ -103,6 +103,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require 'lspconfig'.nixd.setup {}
 
+require 'lspconfig'.clojure_lsp.setup {}
+
 require 'lspconfig'.lua_ls.setup {
   on_init = function(client)
     local path = client.workspace_folders[1].name

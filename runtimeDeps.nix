@@ -22,5 +22,6 @@
     jdt-language-server
     basedpyright
     black
+    clojure-lsp
   ];
 }
