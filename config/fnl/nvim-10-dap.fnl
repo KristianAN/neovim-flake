@@ -1,12 +1,10 @@
 (let [dap (require :dap)]
-  dap.configurations.scala
-  {{:metals {:runType :runOrTestFile}
-     :name :RunOrTest
-     :request :launch
-     :type :scala} {:type :scala
-                                                                                                      :request :launch
-                                                                                                      :name "Test Target"
-                                                                                                      :metals {:runType :testTarget}}})
+  (dap.configurations.scala {{:metals {:runType :runOrTestFile}
+                               :name :RunOrTest
+                               :request :launch
+                               :type :scala} {:type :scala
+                                                                                                                                                                                                              :request :launch
+                                                                                                                                                                                                              :metals {:runType :testTarget}}}))
 
 ; dap.configurations.java = {
 ;   {
@@ -31,4 +29,3 @@
 
 (let [dapui (require :dapui)]
   (dapui.setup))
-
