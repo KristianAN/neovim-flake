@@ -8,6 +8,9 @@ do
 end
 do
   local mini_files = require("mini.files")
+  vim.cmd("au ColorScheme * highlight MiniFilesNormal guibg=NONE")
+  vim.cmd("au ColorScheme * highlight MiniFilesTitle guibg=NONE")
+  vim.cmd("au ColorScheme * highlight MiniFilesBorder guibg=NONE")
   mini_files.setup({window = {config = {}, winblend = 0}})
   local function _1_()
     return mini_files.open()
@@ -22,10 +25,5 @@ do
   local mini_surround = require("mini.surround")
   mini_surround.setup()
 end
-do
-  local mini_statusline = require("mini.statusline")
-  mini_statusline.setup()
-end
-vim.cmd("au ColorScheme * highlight MiniFilesNormal guibg=NONE")
-vim.cmd("au ColorScheme * highlight MiniFilesTitle guibg=NONE")
-return vim.cmd("au ColorScheme * highlight MiniFilesBorder guibg=NONE")
+local mini_statusline = require("mini.statusline")
+return mini_statusline.setup()

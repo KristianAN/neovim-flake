@@ -5,6 +5,9 @@
   (mini_notify.setup {:window {:config {} :winblend 0}}))
 
 (let [mini_files (require :mini.files)]
+  (vim.cmd "au ColorScheme * highlight MiniFilesNormal guibg=NONE")
+  (vim.cmd "au ColorScheme * highlight MiniFilesTitle guibg=NONE")
+  (vim.cmd "au ColorScheme * highlight MiniFilesBorder guibg=NONE")
   (mini_files.setup {:window {:config {} :winblend 0}})
   (vim.keymap.set :n :<leader>or (fn [] (mini_files.open))
                   {:desc "open file browser"})
@@ -18,8 +21,4 @@
 
 (let [mini_statusline (require :mini.statusline)]
   (mini_statusline.setup))
-
-(vim.cmd "au ColorScheme * highlight MiniFilesNormal guibg=NONE")
-(vim.cmd "au ColorScheme * highlight MiniFilesTitle guibg=NONE")
-(vim.cmd "au ColorScheme * highlight MiniFilesBorder guibg=NONE")
 
