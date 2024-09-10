@@ -1,8 +1,9 @@
 (fn gitsigns_on_attach [bufnr]
-  (let [gs (package.loaded.gitsigns)]
+  (let [gs package.loaded.gitsigns]
     (fn map [mode l r opts]
       (set opts.buffer bufnr)
       (vim.keymap.set mode l r opts))
+
 
     ;; Navigation
     (map :n "]c"

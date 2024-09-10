@@ -1,6 +1,6 @@
 -- [nfnl] Compiled from nvim-10-gitsigns.fnl by https://github.com/Olical/nfnl, do not edit.
 local function gitsigns_on_attach(bufnr)
-  local gs = package.loaded.gitsigns()
+  local gs = package.loaded.gitsigns
   local function map(mode, l, r, opts)
     opts.buffer = bufnr
     return vim.keymap.set(mode, l, r, opts)
