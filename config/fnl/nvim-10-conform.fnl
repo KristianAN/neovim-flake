@@ -1,5 +1,5 @@
 (let [conform (require :conform)]
-  conform.setup
+  (conform.setup
   {:formatters_by_ft {:java [:google-java-format]
                       :nix [:nixfmt]
                       :haskell [:ormolu]
@@ -10,4 +10,4 @@
                       :fennel [:fnlfmt]}
    :format_on_save {; These options will be passed to conform.format()
                     :timeout_ms 500
-                    :lsp_fallback true}})
+                    :lsp_fallback true}}))
