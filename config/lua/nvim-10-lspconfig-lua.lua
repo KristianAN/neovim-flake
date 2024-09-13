@@ -75,7 +75,12 @@ local function lsp_keybinds(event)
     local function _16_()
       return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end
-    return map("<leader>th", _16_, "[T]oggle Inlay [H]ints")
+    map("<leader>th", _16_, "[T]oggle Inlay [H]ints")
+  else
+  end
+  if (client and (client.name == "ionide")) then
+    vim.lsp.codelens = false
+    return nil
   else
     return nil
   end

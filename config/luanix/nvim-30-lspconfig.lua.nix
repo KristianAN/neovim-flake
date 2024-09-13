@@ -113,8 +113,5 @@ in
 
   require 'lspconfig'.gleam.setup {}
 
-  require 'lspconfig'.fsautocomplete.setup {}
-
-
 
 ''

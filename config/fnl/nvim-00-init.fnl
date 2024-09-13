@@ -17,7 +17,6 @@
 (set vim.o.ignorecase true)
 (set vim.o.smartcase true)
 
-
 (set vim.o.updatetime 250)
 (set vim.wo.signcolumn :yes)
 

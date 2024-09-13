@@ -25,5 +25,6 @@
     clojure-lsp
     fennel-ls
     fnlfmt
+    fantomas
   ];
 }

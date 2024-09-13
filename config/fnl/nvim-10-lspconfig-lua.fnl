@@ -80,6 +80,8 @@
              (fn []
                (vim.lsp.inlay_hint.enable (not (vim.lsp.inlay_hint.is_enabled))))
              "[T]oggle Inlay [H]ints"))
+      (when (and client (= client.name :ionide))
+        (set vim.lsp.codelens false))
       ;; Extend capabilities for completion.
       ;; client.server_capabilities.semanticTokensProvider = nil
       )))
@@ -96,3 +98,4 @@
 (lsp.lua_ls.setup {})
 (lsp.basedpyright.setup {})
 (lsp.yamlls.setup {:settings {:yaml {:schemas {"https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json" :bleep.yaml}}}})
+
