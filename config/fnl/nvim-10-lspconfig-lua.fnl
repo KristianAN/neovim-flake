@@ -81,7 +81,7 @@
                (vim.lsp.inlay_hint.enable (not (vim.lsp.inlay_hint.is_enabled))))
              "[T]oggle Inlay [H]ints"))
       (when (and client (= client.name :ionide))
-        (set vim.lsp.codelens false))
+        (set vim.lsp.codelens.on_codelens (fn [e r c] nil)))
       ;; Extend capabilities for completion.
       ;; client.server_capabilities.semanticTokensProvider = nil
       )))

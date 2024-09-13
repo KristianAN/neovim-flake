@@ -79,7 +79,10 @@ local function lsp_keybinds(event)
   else
   end
   if (client and (client.name == "ionide")) then
-    vim.lsp.codelens = false
+    local function _18_(e, r, c)
+      return nil
+    end
+    vim.lsp.codelens.on_codelens = _18_
     return nil
   else
     return nil
