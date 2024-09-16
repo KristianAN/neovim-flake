@@ -9,6 +9,10 @@ let
     name = "neovim-runtime-node-deps";
   };
 
+  neovimRuntimeHaskellDependencies = pkgs.symlinkJoin {
+    paths = runtimeDeps.haskellDeps;
+    name = "neovim-runtime-node-deps";
+  };
   shellRuntimeDependencies = pkgs.symlinkJoin {
     paths = runtimeDeps.shellDeps;
     name = "neovim-runtime-shell-deps";
@@ -26,6 +30,7 @@ pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [
     neovimRuntimeNodeDependencies
+    neovimRuntimeHaskellDependencies
     shellRuntimeDependencies
   ];
   text = ''

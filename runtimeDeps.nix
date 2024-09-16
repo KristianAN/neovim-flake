@@ -27,4 +27,6 @@
     fnlfmt
     fantomas
   ];
+
+  haskellDeps = with pkgs.haskellPackages; [ cabal-gild ];
 }
