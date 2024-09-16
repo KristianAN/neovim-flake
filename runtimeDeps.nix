@@ -15,7 +15,6 @@
     nixd
     nixfmt-rfc-style
     scalafmt
-    haskellPackages.ormolu
     rustfmt
     prettierd
     yaml-language-server
@@ -28,5 +27,8 @@
     fantomas
   ];
 
-  haskellDeps = with pkgs.haskellPackages; [ cabal-gild ];
+  haskellDeps = with pkgs.haskellPackages; [
+    cabal-gild
+    ormolu
+  ];
 }

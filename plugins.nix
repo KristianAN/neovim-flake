@@ -80,7 +80,6 @@ in
   pkgs.vimPlugins.nvim-dap
   pkgs.vimPlugins.nvim-dap-ui
   pkgs.vimPlugins.conform-nvim
-  pkgs.vimPlugins.haskell-tools-nvim
   pkgs.vimPlugins.nvim-jdtls
   pkgs.vimPlugins.conjure
   pkgs.vimPlugins.Ionide-vim

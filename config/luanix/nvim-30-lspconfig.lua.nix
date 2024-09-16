@@ -109,8 +109,6 @@ in
 
     vim.g.rustaceanvim = {}
 
-  require('haskell-tools')
-
   require 'lspconfig'.gleam.setup {}
 
 
