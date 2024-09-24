@@ -88,7 +88,7 @@ in
     ----------------------------------------------------
     -- TypeScript
     ----------------------------------------------------
-    require("lspconfig").tsserver.setup {
+    require("lspconfig").ts_ls.setup {
       on_attach = Lsp_on_attach,
       cmd = {"${tsserver}/bin/typescript-language-server", "--stdio"},
       filetypes = {
