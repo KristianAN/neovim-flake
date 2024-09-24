@@ -12,7 +12,7 @@
                    :colors {:palette {}
                             :theme {:wave {} :lotus {} :dragon {} :all {}}}
                    :theme :wave
-                   :background {:dark :dragon :light :lotus}}))
+                   :background {:dark :wave :light :lotus}}))
 
 (vim.cmd "colorscheme kanagawa")
 

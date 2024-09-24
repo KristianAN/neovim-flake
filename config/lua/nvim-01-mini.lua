@@ -22,6 +22,11 @@ do
   vim.keymap.set("n", "<leader>oc", _2_, {desc = "open file browser in current dir"})
 end
 do
+  local mini_misc = require("mini.misc")
+  mini_misc.setup()
+  mini_misc.setup_termbg_sync()
+end
+do
   local mini_surround = require("mini.surround")
   mini_surround.setup()
 end

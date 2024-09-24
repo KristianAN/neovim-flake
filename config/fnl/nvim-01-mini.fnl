@@ -17,6 +17,10 @@
                     (mini_files.open (vim.api.nvim_buf_get_name 0)))
                   {:desc "open file browser in current dir"}))
 
+(let [mini_misc (require :mini.misc)]
+  (mini_misc.setup)
+  (mini_misc.setup_termbg_sync))
+
 (let [mini_surround (require :mini.surround)]
   (mini_surround.setup))
 
