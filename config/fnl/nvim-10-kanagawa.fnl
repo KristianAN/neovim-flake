@@ -6,12 +6,13 @@
                    :keywordStyle {:italic true}
                    :statementStyle {:bold true}
                    :typeStyle {}
-                   :transparent true
+                   :transparent false
                    :dimInactive false
                    :terminalColors true
                    :colors {:palette {}
                             :theme {:wave {} :lotus {} :dragon {} :all {}}}
-                   :theme :dragon
+                   :theme :wave
                    :background {:dark :dragon :light :lotus}}))
 
 (vim.cmd "colorscheme kanagawa")
+
