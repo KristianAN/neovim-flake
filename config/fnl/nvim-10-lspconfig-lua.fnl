@@ -97,7 +97,8 @@
 (lsp.clojure_lsp.setup {})
 (lsp.lua_ls.setup {})
 (lsp.basedpyright.setup {})
-(lsp.hls.setup {:cmd [:haskell-language-server :--lsp]
+(lsp.hls.setup {:cmd [:haskell-language-server-wrapper :--lsp]
                 :filetypes [:haskell :lhaskell]})
+
 (lsp.yamlls.setup {:settings {:yaml {:schemas {"https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json" :bleep.yaml}}}})
 
