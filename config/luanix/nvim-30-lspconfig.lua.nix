@@ -28,8 +28,8 @@ let
   omnisharp = pkgs.omnisharp-roslyn;
   tsserver = pkgs.nodePackages.typescript-language-server;
   metals-pkg = metals {
-    version = "1.3.5";
-    outputHash = "sha256-86/zeoOO5kSAwh7uQTV7nGUGQoIux1rlH5eUgvn3kvY=";
+    version = "1.4.0";
+    outputHash = "sha256-mmsCdv3zSwsaA00I5sQVy0V4fl1GytdgjVjs2r6x32Q=";
   };
   vuels = pkgs.nodePackages.vue-language-server;
 
