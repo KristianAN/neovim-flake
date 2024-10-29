@@ -20,4 +20,5 @@ vim.opt.expandtab = true
 vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.opt.encoding = "utf-8"
+vim.o.guifont = "Iosevka Nerd Font:h13"
 return nil
