@@ -20,6 +20,11 @@
       flake = false;
     };
 
+    neovim-session-manager-src = {
+      url = "github.com:Shatur/neovim-session-manager";
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -29,6 +34,7 @@
       neovimNightly,
       flake-utils,
       neovim-project-src,
+      neovim-session-manager-src,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -39,6 +45,11 @@
           vimPlugins = final.vimPlugins // {
             neovim-project = import ./packages/plugins/neovimProject.nix {
               src = neovim-project-src;
+              pkgs = prev;
+            };
+
+            neovim-session-manager-src = import ./packages/plugins/neovimSessionManager.nix {
+              src = neovim-session-manager-src;
               pkgs = prev;
             };
 

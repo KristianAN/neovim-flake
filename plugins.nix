@@ -88,6 +88,8 @@ in
   pkgs.vimPlugins.mini-nvim
   pkgs.vimPlugins.nfnl
   pkgs.vimPlugins.project-nvim
+  pkgs.vimPlugins.neovim-project
+  pkgs.vimPlugins.neovim-session-manager
 
 ]
 ++ [ nvim-treesitter ]
