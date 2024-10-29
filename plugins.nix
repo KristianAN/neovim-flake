@@ -37,7 +37,6 @@ let
         plugins.smithy
         plugins.dockerfile
         plugins.css
-        plugins.norg
         plugins.kotlin
         plugins.c_sharp
         plugins.gleam
@@ -88,6 +87,9 @@ in
   # Other
   pkgs.vimPlugins.mini-nvim
   pkgs.vimPlugins.nfnl
+  pkgs.vimPlugins.project-nvim
+  pkgs.vimPlugins.neovim-project
+  pkgs.vimPlugins.neovim-session-manager
 
 ]
 ++ [ nvim-treesitter ]
