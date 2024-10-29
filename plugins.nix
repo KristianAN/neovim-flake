@@ -72,6 +72,7 @@ in
 
   #theme
   pkgs.vimPlugins.kanagawa-nvim
+  pkgs.vimPlugins.modus-themes-nvim
 
   # lsp stuff
   pkgs.vimPlugins.nvim-lspconfig
