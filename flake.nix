@@ -21,7 +21,7 @@
     };
 
     neovim-session-manager-src = {
-      url = "github.com:Shatur/neovim-session-manager";
+      url = "github:Shatur/neovim-session-manager";
       flake = false;
     };
 
