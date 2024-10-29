@@ -15,6 +15,11 @@
       url = "github:numtide/flake-utils";
     };
 
+    neovim-project-src = {
+      url = "github:coffebar/neovim-project";
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -23,6 +28,7 @@
       nixpkgs,
       neovimNightly,
       flake-utils,
+      neovim-project-src,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -31,6 +37,10 @@
           neovim = neovimNightly.packages.${prev.system}.neovim;
 
           vimPlugins = final.vimPlugins // {
+            neovim-project = import ./packages/plugins/neovimProject.nix {
+              src = neovim-project-src;
+              pkgs = prev;
+            };
 
           };
         };

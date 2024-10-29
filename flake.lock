@@ -163,6 +163,22 @@
         "type": "github"
       }
     },
+    "neovim-project-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726220391,
+        "narHash": "sha256-56OflNXtVtoRH38LuPxT4RGNIXlG3pH04jvOey/6qio=",
+        "owner": "coffebar",
+        "repo": "neovim-project",
+        "rev": "f841cf801031e56f5193a52402f9cc488ea1a8e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coffebar",
+        "repo": "neovim-project",
+        "type": "github"
+      }
+    },
     "neovim-src": {
       "flake": false,
       "locked": {
@@ -223,6 +239,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "neovim-project-src": "neovim-project-src",
         "neovimNightly": "neovimNightly",
         "nixpkgs": "nixpkgs"
       }
