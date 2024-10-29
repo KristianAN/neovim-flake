@@ -48,7 +48,7 @@
               pkgs = prev;
             };
 
-            neovim-session-manager-src = import ./packages/plugins/neovimSessionManager.nix {
+            neovim-session-manager = import ./packages/plugins/neovimSessionManager.nix {
               src = neovim-session-manager-src;
               pkgs = prev;
             };

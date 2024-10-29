@@ -18,7 +18,7 @@
 (vim.keymap.set [:n :v :x] :<leader>yy "\"+yy"
                 {:noremap true :silent true :desc "Yank line to clipboarb"})
 
-(vim.keymap.set [:n :v :x] :<leader>p "\"+p"
+(vim.keymap.set [:n :v :x] :<leader>cp "\"+p"
                 {:noremap true :silent true :desc "Paste from clipboarb"})
 
 (vim.keymap.set :i :<C-p> :<C-r>+
