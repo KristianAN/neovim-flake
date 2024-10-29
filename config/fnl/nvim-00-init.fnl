@@ -45,3 +45,5 @@
 ; tell vim to use utf-8
 (set vim.opt.encoding :utf-8)
 
+; set font for neovide
+(set vim.o.guifont "Iosevka Nerd Font:h13")
