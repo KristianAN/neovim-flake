@@ -5,26 +5,26 @@
     vue-language-server
   ];
 
-  shellDeps = with pkgs; [
-    ripgrep
-    lua-language-server
-    rust-analyzer
-    fsautocomplete
-    omnisharp-roslyn
-    nodejs_20
-    nixd
-    nixfmt-rfc-style
-    scalafmt
-    rustfmt
-    prettierd
-    yaml-language-server
-    jdt-language-server
-    basedpyright
-    black
-    clojure-lsp
-    fennel-ls
-    fnlfmt
-    fantomas
+  shellDeps = [
+    pkgs.ripgrep
+    pkgs.lua-language-server
+    pkgs.rust-analyzer
+    pkgs.fsautocomplete
+    pkgs.omnisharp-roslyn
+    pkgs.nodejs_20
+    pkgs.nixd
+    pkgs.nixfmt-rfc-style
+    pkgs.scalafmt
+    pkgs.rustfmt
+    pkgs.prettierd
+    pkgs.yaml-language-server
+    pkgs.jdt-language-server
+    pkgs.basedpyright
+    pkgs.black
+    pkgs.clojure-lsp
+    pkgs.fennel-ls
+    pkgs.fnlfmt
+    pkgs.fantomas
   ];
 
   haskellDeps = with pkgs.haskellPackages; [
