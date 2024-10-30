@@ -42,7 +42,7 @@ let
         plugins.gleam
         plugins.clojure
         plugins.fennel
-        plugins.orgmode
+        plugins.org
       ]
       ++ [ treesitter-fsharp-grammar ]
     )
@@ -92,7 +92,7 @@ in
   pkgs.vimPlugins.project-nvim
   pkgs.vimPlugins.neovim-project
   pkgs.vimPlugins.neovim-session-manager
-  pkgs.vimPlugins.orgmode-nvim
+  pkgs.vimPlugins.orgmode
 
 ]
 ++ [ nvim-treesitter ]
