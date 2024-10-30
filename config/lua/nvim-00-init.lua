@@ -20,5 +20,23 @@ vim.opt.expandtab = true
 vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.opt.encoding = "utf-8"
-vim.o.guifont = "Iosevka Nerd Font:h13"
-return nil
+if vim.g.neovide then
+  vim.o.guifont = "Iosevka Nerd Font:h13"
+  vim.g.neovide_cursor_animation_length = 0
+else
+end
+local function openTerminals()
+  vim.cmd("tabnew")
+  vim.cmd("term")
+  vim.cmd("vsplit")
+  vim.cmd("wincmd l")
+  vim.cmd("term")
+  vim.cmd("split")
+  vim.cmd("wincmd j")
+  vim.cmd("term")
+  vim.cmd("wincmd h")
+  vim.cmd("split")
+  vim.cmd("wincmd j")
+  return vim.cmd("term")
+end
+return vim.keymap.set("n", "<leader>tn", openTerminals, {desc = "Term in new tab"})

@@ -46,4 +46,25 @@
 (set vim.opt.encoding :utf-8)
 
 ; set font for neovide
-(set vim.o.guifont "Iosevka Nerd Font:h13")
+(when vim.g.neovide
+  (set vim.o.guifont "Iosevka Nerd Font:h13")
+  (set vim.g.neovide_cursor_animation_length 0)
+  ; (set vim.g.neovide_transparency  0.95)
+)
+
+(fn openTerminals [] 
+  (vim.cmd "tabnew")
+  (vim.cmd "term")
+  (vim.cmd "vsplit")
+  (vim.cmd "wincmd l")
+  (vim.cmd "term")
+  (vim.cmd "split")
+  (vim.cmd "wincmd j")
+  (vim.cmd "term")
+  (vim.cmd "wincmd h")
+  (vim.cmd "split")
+  (vim.cmd "wincmd j")
+  (vim.cmd "term")
+)
+
+(vim.keymap.set :n :<leader>tn openTerminals {:desc "Term in new tab"})
