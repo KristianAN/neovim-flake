@@ -54,6 +54,7 @@ in
   pkgs.vimPlugins.indent-blankline-nvim
   pkgs.vimPlugins.trouble-nvim
   pkgs.vimPlugins.nvim-web-devicons
+  pkgs.vimPlugins.luatab-nvim
 
   # Git
   pkgs.vimPlugins.gitsigns-nvim
