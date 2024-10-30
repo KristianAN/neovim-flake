@@ -60,4 +60,5 @@
                         {:name :nvim_lsp_signature_help}
                         {:name :luasnip}
                         {:name :path}
+                        {:name :orgmode}
                         {:name :buffer}]}))
