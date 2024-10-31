@@ -10,6 +10,9 @@
   (cmp.event:on :confirm_done (cmp_autopairs.on_confirm_done))
   (cmp.setup {:snippet {:expand (fn [args]
                                   (luasnip.lsp_expand args.body))}
+              :formatting {:format (fn [_ item]
+                          (set item.abbr (string.sub item.abbr 1 20))
+                          item)}
               :completion {:completeopt "menu,menuone,noinsert"}
               ;; For an understanding of why these mappings were
               ;; chosen, you will need to read `:help ins-completion`
