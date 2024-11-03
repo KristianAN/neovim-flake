@@ -34,7 +34,7 @@ Direnv._get_rc_status = function(_on_exit)
     end
   end
   on_exit = _2_
-  return vim.system({"direnv", "status", "--json"}, {"text", true, "cwd", vim.fn.getcwd(-1, -1)}, on_exit)
+  return vim.system({"direnv", "status", "--json"}, {text = true, cwd = vim.fn.getcwd(-1, -1)}, on_exit)
 end
 Direnv._init = function(path)
   local function _4_()
@@ -45,27 +45,37 @@ Direnv._init = function(path)
   local on_exit
   local function _5_(obj)
     local function _6_()
-      do local _ = vim.fn.executable end
-      return vim.fn.split(obj.stdout, "\n")
+      local function _7_()
+        local tbl_21_auto = {}
+        local i_22_auto = 0
+        for _, v in ipairs(vim.fn.split(obj.stdout, "call setenv")) do
+          local val_23_auto = ("call setenv" .. v)
+          if (nil ~= val_23_auto) then
+            i_22_auto = (i_22_auto + 1)
+            tbl_21_auto[i_22_auto] = val_23_auto
+          else
+          end
+        end
+        return tbl_21_auto
+      end
+      return vim.fn.execute(_7_())
     end
     return vim.schedule(_6_)
   end
   on_exit = _5_
-  return vim.system({"direnv", "export", "vim"}, {"text", true, "cwd", cwd}, on_exit)
+  return vim.system({"direnv", "export", "vim"}, {text = true, cwd = cwd}, on_exit)
 end
 Direnv.check_direnv = function()
   local on_exit
-  local function _7_(status, path)
-    if ((status == nil) or (status == nil)) then
-      return nil
-    else
+  local function _9_(status, path)
+    if not ((path == nil) or (status == nil)) then
       if (status == 0) then
-        return Direnv.init(path)
+        return Direnv._init(path)
       elseif (status == 2) then
         return nil
       else
         local _ = status
-        local function _8_()
+        local function _10_()
           local choice = vim.fn.confirm((path .. " is blocked." .. "&Allow &Block &Ignore" .. 3))
           if (choice == 1) then
             Direnv.direnv_allow()
@@ -76,19 +86,21 @@ Direnv.check_direnv = function()
             return nil
           end
         end
-        return vim.schedule(_8_)
+        return vim.schedule(_10_)
       end
+    else
+      return nil
     end
   end
-  on_exit = _7_
+  on_exit = _9_
   return Direnv._get_rc_status(on_exit)
 end
 Direnv.setup = function(user_config)
-  local config = vim.tbl_deep_extend("force", {bin = "direnv", keybindings = {allow = "<Leader>da", deny = "<Leader>dd", reload = "<Leader>dd"}, autoload_direnv = false}, (user_config or {}))
+  local config = vim.tbl_deep_extend("force", {bin = "direnv", keybindings = {allow = "<Leader>da", deny = "<Leader>dd", reload = "<Leader>dr"}, autoload_direnv = false}, (user_config or {}))
   if not check_executable(config.bin) then
     return nil
   else
-    local function _12_(opts)
+    local function _14_(opts)
       local cmds = {allow = Direnv.direnv_allow, deny = Direnv.direnv_deny, reload = Direnv.check_direnv}
       local cmd = cmds[string.lower(opts.fargs[1])]
       if cmd() then
@@ -97,12 +109,12 @@ Direnv.setup = function(user_config)
         return nil
       end
     end
-    local function _14_()
+    local function _16_()
       return {"allow", "deny", "reload"}
     end
-    vim.api.nvim_create_user_command("Direnv", _12_, {noargs = 1, complete = _14_})
+    vim.api.nvim_create_user_command("Direnv", _14_, {nargs = 1, complete = _16_})
     setup_keymaps({{config.keybindings.allow, Direnv.direnv_allow, {desc = "Allow direnv"}}, {config.keybindings.deny, Direnv.direnv_deny, {desc = "Deny direnv"}}, {config.keybindings.reload, Direnv.check_direnv, {desc = "Reload direnv"}}}, "n")
-    if (config.autoload_direnv and __fnl_global___21_3d(vim.fn.glob("**/.envrc"), "")) then
+    if (config.autoload_direnv and (vim.fn.glob("**/.envrc") ~= "")) then
       local group_id = vim.api.nvim_create_augroup("DirenvNvim", {})
       return vim.api.nvim_create_autocmd({"DirChanged"}, {pattern = "global", group = group_id, callback = Direnv.check_direnv})
     else
@@ -110,4 +122,4 @@ Direnv.setup = function(user_config)
     end
   end
 end
-return Direnv.setup()
+return Direnv.setup({autoload_direnv = true})
