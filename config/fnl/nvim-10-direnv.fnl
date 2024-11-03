@@ -70,7 +70,7 @@
     (if (not (check_executable config.bin))
         nil
         (do
-          (vim.api.nvim.nvim_create_user_command :Direnv
+          (vim.api.nvim_create_user_command :Direnv
                                                  (fn [opts]
                                                    (let [cmds {:allow Direnv.direnv_allow
                                                                :deny Direnv.direnv_deny
@@ -94,7 +94,7 @@
                            Direnv.check_direnv
                            {:desc "Reload direnv"}]]
                          :n)
-          (when (and conifg.autoload_direnv (!= (vim.fn.glob :**/.envrc) ""))
+          (when (and config.autoload_direnv (!= (vim.fn.glob :**/.envrc) ""))
             (let [group_id (vim.api.nvim_create_augroup :DirenvNvim {})]
               (vim.api.nvim_create_autocmd [:DirChanged]
                                            {:pattern :global

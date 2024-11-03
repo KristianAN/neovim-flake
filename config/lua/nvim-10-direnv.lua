@@ -100,9 +100,9 @@ Direnv.setup = function(user_config)
     local function _14_()
       return {"allow", "deny", "reload"}
     end
-    vim.api.nvim.nvim_create_user_command("Direnv", _12_, {noargs = 1, complete = _14_})
+    vim.api.nvim_create_user_command("Direnv", _12_, {noargs = 1, complete = _14_})
     setup_keymaps({{config.keybindings.allow, Direnv.direnv_allow, {desc = "Allow direnv"}}, {config.keybindings.deny, Direnv.direnv_deny, {desc = "Deny direnv"}}, {config.keybindings.reload, Direnv.check_direnv, {desc = "Reload direnv"}}}, "n")
-    if (conifg.autoload_direnv and __fnl_global___21_3d(vim.fn.glob("**/.envrc"), "")) then
+    if (config.autoload_direnv and __fnl_global___21_3d(vim.fn.glob("**/.envrc"), "")) then
       local group_id = vim.api.nvim_create_augroup("DirenvNvim", {})
       return vim.api.nvim_create_autocmd({"DirChanged"}, {pattern = "global", group = group_id, callback = Direnv.check_direnv})
     else
