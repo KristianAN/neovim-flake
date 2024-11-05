@@ -43,22 +43,24 @@
     (vim.system [:direnv :export :vim] {:text true : cwd} on_exit)))
 
 (fn Direnv.check_direnv []
-  (let [on_exit (fn [status path]
-                  (when (not (or (= path nil) (= status nil)))
-                    (case status
-                      0 (Direnv._init path)
-                      2 nil
-                      _ (vim.schedule (fn []
-                                        (let [choice (vim.fn.confirm (.. path
-                                                                         " is blocked."
-                                                                         "&Allow &Block &Ignore"
-                                                                         3))]
-                                          (case choice
-                                            1 (do
-                                                (Direnv.direnv_allow)
-                                                (Direnv._init))
-                                            2 (Direnv._init))))))))]
-    (Direnv._get_rc_status on_exit)))
+  (do
+    (vim.notify "running check")
+    (let [on_exit (fn [status path]
+                    (when (not (or (= path nil) (= status nil)))
+                      (case status
+                        0 (Direnv._init path)
+                        2 nil
+                        _ (vim.schedule (fn []
+                                          (let [choice (vim.fn.confirm (.. path
+                                                                           " is blocked."
+                                                                           "&Allow &Block &Ignore"
+                                                                           3))]
+                                            (case choice
+                                              1 (do
+                                                  (Direnv.direnv_allow)
+                                                  (Direnv._init))
+                                              2 (Direnv._init))))))))]
+      (Direnv._get_rc_status on_exit))))
 
 (fn Direnv.setup [user_config]
   (let [config (vim.tbl_deep_extend :force
@@ -93,11 +95,12 @@
                            Direnv.check_direnv
                            {:desc "Reload direnv"}]]
                          :n)
-          (when (and config.autoload_direnv (not= (vim.fn.glob :**/.envrc) ""))
-            (let [group_id (vim.api.nvim_create_augroup :DirenvNvim {})]
+          (let [group_id (vim.api.nvim_create_augroup :DirenvNvim {})]
+            (when (and config.autoload_direnv
+                       (not= (vim.fn.glob :**/.envrc) ""))
               (vim.api.nvim_create_autocmd [:DirChanged]
-                                           {:pattern :global
+                                           {:pattern "*"
                                             :group group_id
                                             :callback Direnv.check_direnv})))))))
 
-(Direnv.setup {:autoload_direnv true})
+(Direnv.setup {})
