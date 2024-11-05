@@ -1,4 +1,4 @@
--- [nfnl] Compiled from nvim-10-direnv.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from nvim-02-direnv.fnl by https://github.com/Olical/nfnl, do not edit.
 local Direnv = {}
 local function check_executable(executable_name)
   if (vim.fn.executable(executable_name) == 1) then
@@ -66,6 +66,7 @@ Direnv._init = function(path)
   return vim.system({"direnv", "export", "vim"}, {text = true, cwd = cwd}, on_exit)
 end
 Direnv.check_direnv = function()
+  vim.notify("running check")
   local on_exit
   local function _9_(status, path)
     if not ((path == nil) or (status == nil)) then
@@ -114,12 +115,12 @@ Direnv.setup = function(user_config)
     end
     vim.api.nvim_create_user_command("Direnv", _14_, {nargs = 1, complete = _16_})
     setup_keymaps({{config.keybindings.allow, Direnv.direnv_allow, {desc = "Allow direnv"}}, {config.keybindings.deny, Direnv.direnv_deny, {desc = "Deny direnv"}}, {config.keybindings.reload, Direnv.check_direnv, {desc = "Reload direnv"}}}, "n")
+    local group_id = vim.api.nvim_create_augroup("DirenvNvim", {})
     if (config.autoload_direnv and (vim.fn.glob("**/.envrc") ~= "")) then
-      local group_id = vim.api.nvim_create_augroup("DirenvNvim", {})
-      return vim.api.nvim_create_autocmd({"DirChanged"}, {pattern = "global", group = group_id, callback = Direnv.check_direnv})
+      return vim.api.nvim_create_autocmd({"DirChanged"}, {pattern = "*", group = group_id, callback = Direnv.check_direnv})
     else
       return nil
     end
   end
 end
-return Direnv.setup({autoload_direnv = true})
+return Direnv.setup({})
