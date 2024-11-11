@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, lib }:
 let
   metals =
     { version, outputHash }:
@@ -31,7 +31,6 @@ let
     version = "1.4.0";
     outputHash = "sha256-mmsCdv3zSwsaA00I5sQVy0V4fl1GytdgjVjs2r6x32Q=";
   };
-  vuels = pkgs.nodePackages.vue-language-server;
 
 in
 # lua
@@ -86,6 +85,13 @@ in
     }
 
     ----------------------------------------------------
+    -- VueJS
+    ----------------------------------------------------
+    require'lspconfig'.volar.setup{
+      filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+    }
+
+    ----------------------------------------------------
     -- TypeScript
     ----------------------------------------------------
     require("lspconfig").ts_ls.setup {
@@ -94,16 +100,17 @@ in
       filetypes = {
       "javascript",
       "typescript",
+      "vue",
       },
 
       init_options = {
-        plugins = {
+        plugins = { -- I think this was my breakthrough that made it work
           {
             name = "@vue/typescript-plugin",
-            location = "${vuels}/lib/node_modules/@vue/typescript-plugin",
-            languages = {"javascript", "typescript", "vue"},
+            location = "${lib.getBin pkgs.vue-language-server}/lib/node_modules/@vue/language-server",
+            languages = { "vue" },
           },
-        }
+        },
       }
     }
 

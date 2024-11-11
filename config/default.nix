@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, lib }:
 let
   nixFiles2ConfigFiles =
     dir:
@@ -6,7 +6,10 @@ let
       file:
       pkgs.writeTextFile {
         name = pkgs.lib.strings.removeSuffix ".nix" file;
-        text = import ./${dir}/${file} { inherit pkgs; };
+        text = import ./${dir}/${file} {
+          inherit pkgs;
+          inherit lib;
+        };
       }
     ) (builtins.attrNames (builtins.readDir ./${dir}));
 
