@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
-  customRC = import ../config { inherit pkgs; };
+  customRC = import ../config { inherit pkgs lib; };
   plugins = import ../plugins.nix { inherit pkgs; };
   runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; };
 

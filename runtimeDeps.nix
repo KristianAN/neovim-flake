@@ -2,7 +2,6 @@
 {
   nodeDeps = with pkgs.nodePackages; [
     typescript-language-server
-    vue-language-server
   ];
 
   shellDeps = [
@@ -25,6 +24,7 @@
     pkgs.fennel-ls
     pkgs.fnlfmt
     pkgs.fantomas
+    pkgs.vue-language-server
   ];
 
   haskellDeps = with pkgs.haskellPackages; [

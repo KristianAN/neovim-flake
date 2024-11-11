@@ -56,7 +56,12 @@
           };
         };
 
-        overlayMyNeovim = prev: final: { myNeovim = import ./packages/myNeovim.nix { pkgs = prev; }; };
+        overlayMyNeovim = prev: final: {
+          myNeovim = import ./packages/myNeovim.nix {
+            pkgs = prev;
+            lib = prev.lib;
+          };
+        };
 
         pkgs = import nixpkgs {
           inherit system;
