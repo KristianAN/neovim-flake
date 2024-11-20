@@ -9,7 +9,7 @@ vim.api.nvim_set_hl(0, "TelescopeBorder", {bg = "none"})
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, {desc = "[?] Find recently opened files"})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {desc = "[ ] Find existing buffers"})
 local function _1_()
-  return builtin.current_buffer_fuzzy_find(themes.get_dropdown({winblend = 10, previewer = false}))
+  return builtin.current_buffer_fuzzy_find(themes.get_dropdown({previewer = false}))
 end
 vim.keymap.set("n", "<leader>/", _1_, {desc = "[/] Fuzzily search in current buffer]"})
 vim.keymap.set("n", "<leader><space>", builtin.find_files, {desc = "Search Files"})

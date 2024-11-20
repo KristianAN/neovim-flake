@@ -13,8 +13,7 @@
   (vim.keymap.set :n :<leader>/
                   (fn []
                     ;; You can pass additional configuration to telescope to change theme, layout, etc.
-                    (builtin.current_buffer_fuzzy_find (themes.get_dropdown {:winblend 10
-                                                                             :previewer false})))
+                    (builtin.current_buffer_fuzzy_find (themes.get_dropdown {:previewer false})))
                   {:desc "[/] Fuzzily search in current buffer]"})
   (vim.keymap.set :n :<leader><space> builtin.find_files {:desc "Search Files"})
   (vim.keymap.set :n :<leader>fh builtin.help_tags {:desc "Search Help"})
