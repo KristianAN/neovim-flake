@@ -52,7 +52,7 @@ let
 in
 [
   # UI
-  pkgs.vimPlugins.telescope-nvim
+  pkgs.vimPlugins.fzf-lua
   pkgs.vimPlugins.indent-blankline-nvim
   pkgs.vimPlugins.trouble-nvim
   pkgs.vimPlugins.nvim-web-devicons
