@@ -1,8 +1,3 @@
-(local cmp_nvim_lsp (require :cmp_nvim_lsp))
-(local capabilities
-       (vim.tbl_deep_extend :force (vim.lsp.protocol.make_client_capabilities)
-                            (cmp_nvim_lsp.default_capabilities)))
-
 (fn lsp_keybinds [event]
   (let [telescope_builtin (require :telescope.builtin)
         map (fn [keys func desc]
@@ -92,13 +87,16 @@
                               :callback lsp_keybinds})
 
 (local lsp (require :lspconfig))
-(lsp.fennel_ls.setup {})
-(lsp.nixd.setup {})
-(lsp.clojure_lsp.setup {})
-(lsp.lua_ls.setup {})
-(lsp.basedpyright.setup {})
-(lsp.hls.setup {:cmd [:haskell-language-server-wrapper :--lsp]
+(local capabilities (let [blink (require :blink.cmp)]
+                      (blink.get_lsp_capabilities)))
+
+(lsp.fennel_ls.setup {: capabilities})
+(lsp.nixd.setup {: capabilities})
+(lsp.clojure_lsp.setup {: capabilities})
+(lsp.lua_ls.setup {: capabilities})
+(lsp.basedpyright.setup {: capabilities})
+(lsp.hls.setup {: capabilities
+                :cmd [:haskell-language-server-wrapper :--lsp]
                 :filetypes [:haskell :lhaskell]})
 
 (lsp.yamlls.setup {:settings {:yaml {:schemas {"https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json" :bleep.yaml}}}})
-

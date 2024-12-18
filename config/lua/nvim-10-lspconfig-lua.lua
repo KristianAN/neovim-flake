@@ -1,6 +1,4 @@
 -- [nfnl] Compiled from nvim-10-lspconfig-lua.fnl by https://github.com/Olical/nfnl, do not edit.
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp_nvim_lsp.default_capabilities())
 local function lsp_keybinds(event)
   local telescope_builtin = require("telescope.builtin")
   local map
@@ -90,10 +88,15 @@ local function lsp_keybinds(event)
 end
 vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("UserLspConfig", {clear = true}), callback = lsp_keybinds})
 local lsp = require("lspconfig")
-lsp.fennel_ls.setup({})
-lsp.nixd.setup({})
-lsp.clojure_lsp.setup({})
-lsp.lua_ls.setup({})
-lsp.basedpyright.setup({})
-lsp.hls.setup({cmd = {"haskell-language-server-wrapper", "--lsp"}, filetypes = {"haskell", "lhaskell"}})
+local capabilities
+do
+  local blink = require("blink.cmp")
+  capabilities = blink.get_lsp_capabilities()
+end
+lsp.fennel_ls.setup({capabilities = capabilities})
+lsp.nixd.setup({capabilities = capabilities})
+lsp.clojure_lsp.setup({capabilities = capabilities})
+lsp.lua_ls.setup({capabilities = capabilities})
+lsp.basedpyright.setup({capabilities = capabilities})
+lsp.hls.setup({capabilities = capabilities, cmd = {"haskell-language-server-wrapper", "--lsp"}, filetypes = {"haskell", "lhaskell"}})
 return lsp.yamlls.setup({settings = {yaml = {schemas = {["https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json"] = "bleep.yaml"}}}})

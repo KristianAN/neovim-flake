@@ -6,11 +6,10 @@
                    :keywordStyle {:italic true}
                    :statementStyle {:bold true}
                    :typeStyle {}
-                   :transparent true
+                   :transparent false
                    :dimInactive false
                    :terminalColors true
                    :colors {:palette {}
                             :theme {:wave {} :lotus {} :dragon {} :all {}}}
                    :theme :wave
                    :background {:dark :wave :light :lotus}}))
-

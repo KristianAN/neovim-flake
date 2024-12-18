@@ -35,6 +35,7 @@ let
 in
 # lua
 ''
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
     ----------------------------------------------------
     -- Metals
     ----------------------------------------------------
@@ -49,7 +50,7 @@ in
     }
 
     -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+    metals_config.capabilities = capabilities
 
     -- Autocmd that will actually be in charging of starting the whole thing
     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
@@ -73,7 +74,7 @@ in
     ----------------------------------------------------
 
     require'lspconfig'.omnisharp.setup {
-       on_attach = Lsp_on_attach,
+       capabilities = capabilities,
        cmd = { "dotnet", "${omnisharp}/lib/omnisharp-roslyn/OmniSharp.dll" },
        enable_editorconfig_support = true,
        enable_ms_build_load_projects_on_demand = false,
@@ -88,6 +89,7 @@ in
     -- VueJS
     ----------------------------------------------------
     require'lspconfig'.volar.setup{
+      capabilities = capabilities,
       filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
     }
 
@@ -95,7 +97,7 @@ in
     -- TypeScript
     ----------------------------------------------------
     require("lspconfig").ts_ls.setup {
-      on_attach = Lsp_on_attach,
+      capabilities = capabilities,
       cmd = {"${tsserver}/bin/typescript-language-server", "--stdio"},
       filetypes = {
       "javascript",
@@ -114,9 +116,9 @@ in
       }
     }
 
-    vim.g.rustaceanvim = {}
+    vim.g.rustaceanvim = { capabilities = capabilities }
 
-  require 'lspconfig'.gleam.setup {}
+  require 'lspconfig'.gleam.setup { capabilities = capabilities }
 
 
 ''

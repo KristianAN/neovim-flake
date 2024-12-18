@@ -18,6 +18,7 @@ let
 
     meta.homepage = "https://github.com/ionide/tree-sitter-fsharp";
   };
+
   nvim-treesitter = (
     pkgs.vimPlugins.nvim-treesitter.withPlugins (
       plugins:
@@ -62,14 +63,8 @@ in
   pkgs.vimPlugins.neogit
 
   # Editing
-  pkgs.vimPlugins.luasnip
-  pkgs.vimPlugins.nvim-autopairs
-  pkgs.vimPlugins.nvim-cmp
-  pkgs.vimPlugins.cmp-buffer
-  pkgs.vimPlugins.cmp-nvim-lsp
-  pkgs.vimPlugins.cmp-nvim-lsp-signature-help
-  pkgs.vimPlugins.cmp-path
-  pkgs.vimPlugins.cmp_luasnip
+  pkgs.vimPlugins.friendly-snippets
+  pkgs.vimPlugins.blink-cmp
 
   #theme
   pkgs.vimPlugins.kanagawa-nvim
