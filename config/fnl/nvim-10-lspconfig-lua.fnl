@@ -1,35 +1,30 @@
 (fn lsp_keybinds [event]
-  (let [telescope_builtin (require :telescope.builtin)
+  (let [fzf (require :fzf-lua)
         map (fn [keys func desc]
               (vim.keymap.set :n keys func
                               {:buffer event.buf :desc (.. "LSP: " desc)}))]
     ;; Jump to the definition of the word under your cursor.
     (map :gd (fn []
-               (telescope_builtin.lsp_definitions))
-         "[G]oto [D]efinition")
+               (fzf.lsp_definitions)) "[G]oto [D]efinition")
     ;; Find references for the word under your cursor.
     (map :gr (fn []
-               (telescope_builtin.lsp_references))
-         "[G]oto [R]eferences")
+               (fzf.lsp_references)) "[G]oto [R]eferences")
     ;; Jump to the implementation of the word under your cursor.
     (map :gI (fn []
-               (telescope_builtin.lsp_implementations))
+               (fzf.lsp_implementations))
          "[G]oto [I]mplementation")
     ;; Jump to the type of the word under your cursor.
-    (map :<leader>D
-         (fn []
-           (telescope_builtin.lsp_type_definitions))
+    (map :<leader>D (fn []
+                      (fzf.lsp_typedefs))
          "Type [D]efinition")
     ;; Fuzzy find all the symbols in your current document.
-    (map :<leader>ds
-         (fn []
-           (telescope_builtin.lsp_document_symbols))
+    (map :<leader>ds (fn []
+                       (fzf.lsp_document_symbols))
          "[D]ocument [S]ymbols")
     ;; Fuzzy find all the symbols in your current workspace.
     (map :<leader>ws
          (fn []
-           (telescope_builtin.lsp_dynamic_workspace_symbols))
-         "[W]orkspace [S]ymbols")
+           (fzf.lsp_dynamic_workspace_symbols)) "[W]orkspace [S]ymbols")
     ;; Rename the variable under your cursor.
     (map :<leader>rn (fn [] (vim.lsp.buf.rename)) "[R]e[n]ame")
     ;; Execute a code action.

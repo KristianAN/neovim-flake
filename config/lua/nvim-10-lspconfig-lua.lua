@@ -1,33 +1,33 @@
 -- [nfnl] Compiled from nvim-10-lspconfig-lua.fnl by https://github.com/Olical/nfnl, do not edit.
 local function lsp_keybinds(event)
-  local telescope_builtin = require("telescope.builtin")
+  local fzf = require("fzf-lua")
   local map
   local function _1_(keys, func, desc)
     return vim.keymap.set("n", keys, func, {buffer = event.buf, desc = ("LSP: " .. desc)})
   end
   map = _1_
   local function _2_()
-    return telescope_builtin.lsp_definitions()
+    return fzf.lsp_definitions()
   end
   map("gd", _2_, "[G]oto [D]efinition")
   local function _3_()
-    return telescope_builtin.lsp_references()
+    return fzf.lsp_references()
   end
   map("gr", _3_, "[G]oto [R]eferences")
   local function _4_()
-    return telescope_builtin.lsp_implementations()
+    return fzf.lsp_implementations()
   end
   map("gI", _4_, "[G]oto [I]mplementation")
   local function _5_()
-    return telescope_builtin.lsp_type_definitions()
+    return fzf.lsp_typedefs()
   end
   map("<leader>D", _5_, "Type [D]efinition")
   local function _6_()
-    return telescope_builtin.lsp_document_symbols()
+    return fzf.lsp_document_symbols()
   end
   map("<leader>ds", _6_, "[D]ocument [S]ymbols")
   local function _7_()
-    return telescope_builtin.lsp_dynamic_workspace_symbols()
+    return fzf.lsp_dynamic_workspace_symbols()
   end
   map("<leader>ws", _7_, "[W]orkspace [S]ymbols")
   local function _8_()
