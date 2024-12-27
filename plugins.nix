@@ -86,7 +86,6 @@ in
   pkgs.vimPlugins.project-nvim
   pkgs.vimPlugins.neovim-project
   pkgs.vimPlugins.neovim-session-manager
-  pkgs.vimPlugins.orgmode
 
 ]
 ++ [ nvim-treesitter ]
