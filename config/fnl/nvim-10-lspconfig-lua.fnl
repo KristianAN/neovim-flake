@@ -90,6 +90,7 @@
 (lsp.clojure_lsp.setup {: capabilities})
 (lsp.lua_ls.setup {: capabilities})
 (lsp.basedpyright.setup {: capabilities})
+(lsp.clangd.setup {: capabilities})
 (lsp.hls.setup {: capabilities
                 :cmd [:haskell-language-server-wrapper :--lsp]
                 :filetypes [:haskell :lhaskell]})
