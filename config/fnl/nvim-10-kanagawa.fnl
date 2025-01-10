@@ -13,3 +13,5 @@
                             :theme {:wave {} :lotus {} :dragon {} :all {}}}
                    :theme :wave
                    :background {:dark :wave :light :lotus}}))
+
+(vim.cmd "colorscheme kanagawa-wave")
