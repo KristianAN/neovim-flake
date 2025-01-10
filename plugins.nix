@@ -57,6 +57,7 @@ in
   pkgs.vimPlugins.trouble-nvim
   pkgs.vimPlugins.nvim-web-devicons
   pkgs.vimPlugins.luatab-nvim
+  pkgs.vimPlugins.quicker-nvim
 
   # Git
   pkgs.vimPlugins.gitsigns-nvim
