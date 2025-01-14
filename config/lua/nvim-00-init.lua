@@ -39,4 +39,5 @@ local function openTerminals()
   vim.cmd("wincmd j")
   return vim.cmd("term")
 end
-return vim.keymap.set("n", "<leader>tn", openTerminals, {desc = "Term in new tab"})
+vim.keymap.set("n", "<leader>tn", openTerminals, {desc = "Term in new tab"})
+return vim.cmd("colorscheme default")

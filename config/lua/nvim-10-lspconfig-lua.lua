@@ -81,10 +81,10 @@ local function lsp_keybinds(event)
       return nil
     end
     vim.lsp.codelens.on_codelens = _18_
-    return nil
   else
-    return nil
   end
+  client.server_capabilities.semanticTokensProvider = nil
+  return nil
 end
 vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("UserLspConfig", {clear = true}), callback = lsp_keybinds})
 local lsp = require("lspconfig")

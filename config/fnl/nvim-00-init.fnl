@@ -65,3 +65,5 @@
   (vim.cmd :term))
 
 (vim.keymap.set :n :<leader>tn openTerminals {:desc "Term in new tab"})
+
+(vim.cmd "colorscheme default")
