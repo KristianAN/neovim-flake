@@ -57,10 +57,11 @@ in
   pkgs.vimPlugins.trouble-nvim
   pkgs.vimPlugins.nvim-web-devicons
   pkgs.vimPlugins.luatab-nvim
+  pkgs.vimPlugins.quicker-nvim
 
   # Git
   pkgs.vimPlugins.gitsigns-nvim
-  pkgs.vimPlugins.neogit
+  pkgs.vimPlugins.lazygit-nvim
 
   # Editing
   pkgs.vimPlugins.friendly-snippets
