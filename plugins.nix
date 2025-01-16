@@ -80,6 +80,7 @@ in
   pkgs.vimPlugins.conform-nvim
   pkgs.vimPlugins.conjure
   pkgs.vimPlugins.Ionide-vim
+  pkgs.vimPlugins.nvim-jdtls
 
   # Other
   pkgs.vimPlugins.mini-nvim
