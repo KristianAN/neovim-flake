@@ -62,6 +62,7 @@ in
   # Git
   pkgs.vimPlugins.gitsigns-nvim
   pkgs.vimPlugins.neogit
+  pkgs.vimPlugins.diffview-nvim
 
   # Editing
   pkgs.vimPlugins.friendly-snippets
