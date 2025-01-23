@@ -61,7 +61,8 @@ in
 
   # Git
   pkgs.vimPlugins.gitsigns-nvim
-  pkgs.vimPlugins.lazygit-nvim
+  pkgs.vimPlugins.neogit
+  pkgs.vimPlugins.diffview-nvim
 
   # Editing
   pkgs.vimPlugins.friendly-snippets
@@ -80,6 +81,7 @@ in
   pkgs.vimPlugins.conform-nvim
   pkgs.vimPlugins.conjure
   pkgs.vimPlugins.Ionide-vim
+  pkgs.vimPlugins.nvim-jdtls
 
   # Other
   pkgs.vimPlugins.mini-nvim
