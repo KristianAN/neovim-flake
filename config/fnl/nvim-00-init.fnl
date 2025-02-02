@@ -66,6 +66,6 @@
 
 (vim.keymap.set :n :<leader>tn openTerminals {:desc "Term in new tab"})
 
-(vim.cmd "colorscheme default")
+(vim.cmd "colorscheme alabaster")
 
 (set vim.g.conjure#filetype#fennel :conjure.client.fennel.nfnl)

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alabaster-nvim-plugin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737139512,
+        "narHash": "sha256-ReRQWwELzH54BYyKCs9vGiw+78iGNt+ToIn9Dpg7zX8=",
+        "owner": "p00f",
+        "repo": "alabaster.nvim",
+        "rev": "8de3afd6b203e5469594108041721b8618a10889",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p00f",
+        "repo": "alabaster.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -219,6 +235,7 @@
     },
     "root": {
       "inputs": {
+        "alabaster-nvim-plugin": "alabaster-nvim-plugin",
         "flake-utils": "flake-utils",
         "neovimNightly": "neovimNightly",
         "nixpkgs": "nixpkgs"
