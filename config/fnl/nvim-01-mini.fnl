@@ -25,6 +25,3 @@
 
 (let [mini_statusline (require :mini.statusline)]
   (mini_statusline.setup))
-
-(let [mini_pairs (require :mini.pairs)]
-  (mini_pairs.setup))
