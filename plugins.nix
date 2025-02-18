@@ -69,8 +69,8 @@ in
   pkgs.vimPlugins.blink-cmp
 
   #theme
-  pkgs.vimPlugins.kanagawa-nvim
   pkgs.vimPlugins.modus-themes-nvim
+  pkgs.vimPlugins.alabaster
 
   # lsp stuff
   pkgs.vimPlugins.nvim-lspconfig

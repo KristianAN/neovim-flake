@@ -15,6 +15,11 @@
       url = "github:numtide/flake-utils";
     };
 
+    alabaster-nvim-plugin = {
+      url = "github:p00f/alabaster.nvim";
+      flake = false;
+    };
+
   };
 
   outputs =
@@ -23,6 +28,7 @@
       nixpkgs,
       neovimNightly,
       flake-utils,
+      alabaster-nvim-plugin,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -31,7 +37,10 @@
           neovim = neovimNightly.packages.${prev.system}.neovim;
 
           vimPlugins = final.vimPlugins // {
-
+            alabaster = import ./packages/plugins/alabaster.nix {
+              src = alabaster-nvim-plugin;
+              pkgs = prev;
+            };
           };
         };
 
