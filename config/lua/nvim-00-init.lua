@@ -40,6 +40,6 @@ local function openTerminals()
   return vim.cmd("term")
 end
 vim.keymap.set("n", "<leader>tn", openTerminals, {desc = "Term in new tab"})
-vim.cmd("colorscheme alabaster")
+vim.cmd("colorscheme default")
 vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.nfnl"
 return nil

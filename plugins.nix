@@ -68,10 +68,6 @@ in
   pkgs.vimPlugins.friendly-snippets
   pkgs.vimPlugins.blink-cmp
 
-  #theme
-  pkgs.vimPlugins.modus-themes-nvim
-  pkgs.vimPlugins.alabaster
-
   # lsp stuff
   pkgs.vimPlugins.nvim-lspconfig
   pkgs.vimPlugins.nvim-metals
@@ -86,7 +82,6 @@ in
   # Other
   pkgs.vimPlugins.mini-nvim
   pkgs.vimPlugins.nfnl
-  pkgs.vimPlugins.project-nvim
 
 ]
 ++ [ nvim-treesitter ]

@@ -73,7 +73,8 @@
       (when (and client (= client.name :ionide))
         (set vim.lsp.codelens.on_codelens (fn [e r c] nil)))
       ;; Extend capabilities for completion.
-      (set client.server_capabilities.semanticTokensProvider nil))))
+      ;(set client.server_capabilities.semanticTokensProvider nil)
+      )))
 
 (vim.api.nvim_create_autocmd :LspAttach
                              {:group (vim.api.nvim_create_augroup :UserLspConfig

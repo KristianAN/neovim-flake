@@ -18,10 +18,7 @@
 
 (let [mini_misc (require :mini.misc)]
   (mini_misc.setup)
-  (MiniMisc.setup_termbg_sync))
-
-(let [mini_surround (require :mini.surround)]
-  (mini_surround.setup))
+  (mini_misc.setup_termbg_sync))
 
 (let [mini_statusline (require :mini.statusline)]
   (mini_statusline.setup))
