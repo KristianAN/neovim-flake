@@ -23,5 +23,8 @@
 (let [mini_statusline (require :mini.statusline)]
   (mini_statusline.setup))
 
+(let [mini_surround (require :mini.surround)]
+  (mini_surround.setup))
+
 (let [mini_ai (require :mini.ai)]
   (mini_ai.setup))

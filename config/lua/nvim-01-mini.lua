@@ -30,5 +30,9 @@ do
   local mini_statusline = require("mini.statusline")
   mini_statusline.setup()
 end
+do
+  local mini_surround = require("mini.surround")
+  mini_surround.setup()
+end
 local mini_ai = require("mini.ai")
 return mini_ai.setup()
