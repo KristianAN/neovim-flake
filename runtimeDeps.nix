@@ -1,8 +1,5 @@
 { pkgs }:
 {
-  nodeDeps = with pkgs.nodePackages; [
-    typescript-language-server
-  ];
 
   shellDeps = [
     pkgs.ripgrep
@@ -10,7 +7,6 @@
     pkgs.rust-analyzer
     pkgs.fsautocomplete
     pkgs.omnisharp-roslyn
-    pkgs.nodejs_20
     pkgs.nixd
     pkgs.nixfmt-rfc-style
     pkgs.scalafmt
@@ -27,8 +23,4 @@
     pkgs.vue-language-server
   ];
 
-  haskellDeps = with pkgs.haskellPackages; [
-    cabal-gild
-    ormolu
-  ];
 }

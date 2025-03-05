@@ -4,15 +4,6 @@ let
   plugins = import ../plugins.nix { inherit pkgs; };
   runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; };
 
-  neovimRuntimeNodeDependencies = pkgs.symlinkJoin {
-    paths = runtimeDeps.nodeDeps;
-    name = "neovim-runtime-node-deps";
-  };
-
-  neovimRuntimeHaskellDependencies = pkgs.symlinkJoin {
-    paths = runtimeDeps.haskellDeps;
-    name = "neovim-runtime-node-deps";
-  };
   shellRuntimeDependencies = pkgs.symlinkJoin {
     paths = runtimeDeps.shellDeps;
     name = "neovim-runtime-shell-deps";
@@ -29,8 +20,6 @@ in
 pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [
-    neovimRuntimeNodeDependencies
-    neovimRuntimeHaskellDependencies
     shellRuntimeDependencies
   ];
   text = ''
