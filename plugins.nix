@@ -23,7 +23,6 @@ let
       plugins.gleam
       plugins.clojure
       plugins.fennel
-      plugins.org
     ])
   );
 
