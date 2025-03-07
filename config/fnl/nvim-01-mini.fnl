@@ -1,5 +1,5 @@
 (let [mini_notify (require :mini.notify)]
-  (mini_notify.setup {:lsp_progress {:enable true}}))
+  (mini_notify.setup {:lsp_progress {:enable false}}))
 
 (let [mini_files (require :mini.files)]
   (mini_files.setup)

@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from nvim-01-mini.fnl by https://github.com/Olical/nfnl, do not edit.
 do
   local mini_notify = require("mini.notify")
-  mini_notify.setup({lsp_progress = {enable = true}})
+  mini_notify.setup({lsp_progress = {enable = false}})
 end
 do
   local mini_files = require("mini.files")
