@@ -1,7 +1,6 @@
 (let [conform (require :conform)]
   (conform.setup {:formatters_by_ft {:java [:google-java-format]
                                      :nix [:nixfmt]
-                                     :haskell [:formolu]
                                      :rust [:rustfmt]
                                      :javascript [:prettierd]
                                      :typescript [:prettierd]
