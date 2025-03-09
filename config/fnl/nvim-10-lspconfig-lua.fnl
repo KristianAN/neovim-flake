@@ -94,6 +94,7 @@
 (lsp.hls.setup {: capabilities
                 :cmd [:haskell-language-server-wrapper :--lsp]
                 :filetypes [:haskell :lhaskell]}
-               :formattingProvider :formolu)
+               ;:formattingProvider :formolu)
+               )
 
 (lsp.yamlls.setup {:settings {:yaml {:schemas {"https://raw.githubusercontent.com/oyvindberg/bleep/master/schema.json" :bleep.yaml}}}})
