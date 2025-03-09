@@ -6,7 +6,7 @@
                                      :typescript [:prettierd]
                                      :vue [:prettierd]
                                      :python [:black]
-                                     :haskell [:formolu]
+                                     :haskell [:fourmolu]
                                      :fennel [:fnlfmt]}
                   :format_on_save {; These options will be passed to conform.format()
                                    :timeout_ms 500
